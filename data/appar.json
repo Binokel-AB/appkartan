@@ -1,0 +1,279 @@
+{
+  "uppdaterad": "2026-11-09",
+  "kallor": "GitHub Binokel-AB, Supabase, Lovable och Blueprint (systems, edges, roadmap_items)",
+  "appar": [
+    {
+      "id": "glasflow", "namn": "GlasFlow", "grupp": "kundresan", "status": "drift", "ikon": "glasflow-b.svg",
+      "kort": "Varje glasögonorder från foto till leverans.",
+      "gor": "Butiken fotograferar ServeIT-ordern, AI läser av den och ordern följs genom slipning, montering, PostNord och leverans. Butiker och montörer ser exakt var varje par är.",
+      "varfor": "Förut ringde butikerna runt för att hitta order. Nu syns allt på ett ställe och kunden får besked automatiskt.",
+      "anvands_av": "Butikspersonal, montörer i Luleå och Östermalm, admin.",
+      "inloggning": "E-post och lösenord eller Google.",
+      "databas": "Supabase (eget konto)", "repo": "glasflow-order-track", "adress": "glasflow-order-track.lovable.app",
+      "kopplingar": [["ServeIT", "order in via foto", true], ["PostNord", "etiketter och spårning"], ["Kunduppföljning", "status och köp"], ["Synpunkten", "avvikelser"], ["Spargris", "sålda par"], ["Webbshoppen", "betalda webborder in"], ["Binokel Insikt", "siffror per butik"]],
+      "pagar": ["F66: färre statussteg för lokalt monterade glas", "F80: QR-kod visas inte efter skapad sändning", "Databasen svarar ibland långsamt", "Feedbackknappen fungerar inte när en dialog är öppen", "Ny ikon"]
+    },
+    {
+      "id": "kunduppfoljning", "namn": "Kunduppföljning", "aka": "Binokel CRM", "grupp": "kundresan", "status": "drift", "ikon": "kunduppfoljning.svg",
+      "kort": "Optikerns arbetskö och kundhistorik.",
+      "gor": "Visar vilka kunder som ska följas upp efter köp, med samtal (Telavox) och SMS i kundkortet. En nattmotor bygger kön varje natt.",
+      "varfor": "Så att ingen kund glöms bort efter köpet och så att optikern ser hela historiken.",
+      "anvands_av": "Optiker och butikspersonal.",
+      "inloggning": "Google eller e-post och lösenord.",
+      "databas": "Supabase (eget konto)", "repo": "huggy-beacon", "adress": "huggy-beacon.lovable.app",
+      "kopplingar": [["GlasFlow", "order och status in"], ["Telavox", "samtalshistorik in"], ["Twilio", "SMS"], ["Kundnöjdhet (gammal)", "gamla uppföljningar, import varje natt"], ["Binokel Insikt", "siffror per butik"]],
+      "frusen": true,
+      "pagar": ["Statusbrickan på Översikt räknas utan uppföljningsstatus", "Komplett test av SMS-chatten i kundkortet", "Gemensam SMS-tjänst med GlasFlow (vägval)"]
+    },
+    {
+      "id": "saljstod", "namn": "Säljstödet", "aka": "Vision Builder Pack", "grupp": "kundresan", "status": "drift", "ikon": "saljstod.png",
+      "kort": "Glasval, paket och pris i butiken.",
+      "gor": "Säljaren fotar ordinationen, appen föreslår glas, paket och kampanjer och visar ett prisförslag med EAN-koder som skannas in i ServeIT-kassan.",
+      "varfor": "Samma rätta pris och kampanj i alla butiker, och snabbare säljsamtal.",
+      "anvands_av": "Säljare i butik. Admin för sortiment och priser.",
+      "inloggning": "Personalkonto (Google eller e-post).",
+      "databas": "Lovable Cloud", "repo": "semantic-mapping-kit", "adress": "semantic-mapping-kit.lovable.app",
+      "kopplingar": [["ServeIT", "ordination in (foto), EAN ut", true], ["Eyewear Navigator", "sortiment och priser (avvecklas)"], ["Binokel Insikt", "siffror per butik"]],
+      "pagar": ["Ska börja om på första sidan efter omstart men behålla kunden vid kort byte", "Rodenstocks regel om andra paret är inte verifierad för 2026"]
+    },
+    {
+      "id": "anamnes", "namn": "Anamnesportalen", "grupp": "kundresan", "status": "drift", "ikon": "anamnesportalen.svg",
+      "kort": "Kunden svarar på hälsofrågor före synundersökningen.",
+      "gor": "Kunden får en länk i bokningspåminnelsen och fyller i formuläret. AI skriver en sammanfattning som optikern för in i ServeIT-journalen. Hanterar även körkortsintyg.",
+      "varfor": "Optikern är förberedd och undersökningen går snabbare och säkrare.",
+      "anvands_av": "Kunder (via länk) och optiker.",
+      "inloggning": "Clerk för optiker. Kunder via engångslänk.",
+      "databas": "Supabase (eget konto)", "repo": "anamnesis-guardian-portal", "adress": "anamnes.binokeloptik.se",
+      "kopplingar": [["ServeIT", "sammanfattning till journal", true], ["Binokel Insikt", "antal per butik"]],
+      "pagar": ["Publicerad version ligger efter koden i GitHub", "Kort länk i påminnelsen för billigare SMS"]
+    },
+    {
+      "id": "formatning", "namn": "Förmätningsappen", "aka": "Optic Measure", "grupp": "kundresan", "status": "drift", "ikon": "formatning.png",
+      "kort": "Förmätning i butik, optiker granskar på distans.",
+      "gor": "Personalen i Kiruna och Ånäset mäter och skickar in. Optikern hanterar ärendet på distans och för in värdena i ServeIT.",
+      "varfor": "Gör att butiker utan optiker på plats kan ta emot kunder.",
+      "anvands_av": "Butikspersonal och optiker.",
+      "inloggning": "E-post och lösenord med godkännande, eller Google.",
+      "databas": "Lovable Cloud", "repo": "eye-scan-wizard", "adress": "eye-scan-wizard.lovable.app",
+      "kopplingar": [["ServeIT", "mätvärden till journal", true], ["Google Chat", "notiser"]],
+      "pagar": []
+    },
+    {
+      "id": "personal", "namn": "Personalappen", "grupp": "personal", "status": "drift", "ikon": "personal.png",
+      "kort": "Schema, arbetstid, frånvaro och löneunderlag.",
+      "gor": "Ersätter Personalkollen. Schema, faktisk tid, sjuk och VAB, resor och ersättningar. Löneunderlaget stäms av mot Fortnox. Den talar också om för andra appar vem du är (whoami).",
+      "varfor": "Ett eget system som passar våra regler och som andra appar kan lita på för inloggning.",
+      "anvands_av": "All personal, chefer och lön.",
+      "inloggning": "Google eller e-post och lösenord.",
+      "databas": "Lovable Cloud", "repo": "staffflow-optimizer", "adress": "binokel-personal.lovable.app",
+      "kopplingar": [["Fortnox", "lön och anställda"], ["Niemis Academy", "inloggning och kompetens"], ["Niemis Beställning", "inloggning"], ["Binokel Insikt", "bemanning per butik"]],
+      "pagar": ["F03: register för kliniska delegeringar", "Kontrollera mejl vid sjuk- och VAB-anmälan", "Samma person ska ha samma behörighet i alla appar"]
+    },
+    {
+      "id": "academy", "namn": "Niemis Academy", "grupp": "personal", "status": "pilot", "ikon": "academy.svg",
+      "kort": "Utbildning, rutiner och assistenten Iris.",
+      "gor": "Lektioner, kunskapstest, varumärkeskurser och rutinbibliotek. Assistenten Iris svarar på frågor här och i de andra apparna. Pilot med tre personer sedan 23 oktober.",
+      "varfor": "Ny personal ska komma igång snabbt och alla ska hitta rätt rutin.",
+      "anvands_av": "Ny och befintlig personal.",
+      "inloggning": "Google, behörighet via Personalappen (whoami).",
+      "databas": "Lovable Cloud", "repo": "northern-lens-learning-quest", "adress": "northern-lens-learning-quest.lovable.app",
+      "kopplingar": [["Personalappen", "inloggning och resultat"], ["Google Drive", "rutindokument"], ["Google Chat", "Iris i chatten"], ["Alla interna appar", "Hjälp-knappen"]],
+      "pagar": ["Rätta sju rutiner efter feedback (kortterminal, myopi, körkort m.fl.)", "Kundens ärende i tidboken", "Onboarding 2.0 efter KlarSynt-bytet"]
+    },
+    {
+      "id": "insikt", "namn": "Binokel Insikt", "grupp": "personal", "status": "bygg", "ikon": "insikt.svg",
+      "kort": "Resultat och nyckeltal per butik.",
+      "gor": "Resultat, kostnader, bemanning, ordrar, kunder och mål per butik och månad. Hämtar Fortnox och Flopay-kassan automatiskt och ServeIT via filimport. Här finns Flopay-delen.",
+      "varfor": "Ledningen ska se hur butikerna går utan att leta i fem system.",
+      "anvands_av": "Daniel, Christian och Ester.",
+      "inloggning": "Bara godkända Google Workspace-konton.",
+      "databas": "Lovable Cloud", "repo": "binokel-insikt", "adress": "",
+      "kopplingar": [["Fortnox", "resultat och fakturor"], ["Flopay", "kassans försäljning"], ["ServeIT", "filimport", true], ["GlasFlow", "ordrar"], ["Kunduppföljning", "uppföljningar"], ["Synpunkten", "avvikelser"], ["Personalappen", "bemanning"]],
+      "pagar": ["Byggs etapp för etapp enligt specifikationen v7"]
+    },
+    {
+      "id": "spargris", "namn": "Spargris", "aka": "KPI-appen?", "grupp": "personal", "status": "drift", "ikon": "spargris.svg",
+      "kort": "Sålda par, försäljning och mål per butik.",
+      "gor": "Visar antal kunder och par, intäkt och snitt per dag, vecka och månad, och låter ledningen sätta mål. Ordrar kommer automatiskt från GlasFlow. Kan visas på en tv i butiken.",
+      "varfor": "Butikerna ser varje dag hur det går mot målet.",
+      "anvands_av": "Butiker och ledning.",
+      "inloggning": "Google eller e-post och lösenord.",
+      "databas": "Lovable Cloud", "repo": "glasost-koll", "adress": "glasost-koll.lovable.app",
+      "kopplingar": [["GlasFlow", "sålda par in"]],
+      "pagar": ["Varje konto ska bli medlem i alla butiker automatiskt"]
+    },
+    {
+      "id": "bestallning", "namn": "Niemis Beställning", "grupp": "personal", "status": "pilot", "ikon": "bestallning.svg",
+      "kort": "Lager och påfyllning utan listor och bristmejl.",
+      "gor": "Personalen anmäler brist, räknar lager och tar emot leveranser. Leverantörsmejl och följesedlar läses av automatiskt och kopplas till fakturor. Pilot i Kiruna.",
+      "varfor": "Ersätter manuella lagerlistor och bristmejl. Personalen gör bara tre saker.",
+      "anvands_av": "Butikspersonal och inköp (Ester).",
+      "inloggning": "Google, behörighet via Personalappen eller butikens konto.",
+      "databas": "Lovable Cloud", "repo": "inventory-binokel", "adress": "niemis-bestallning.lovable.app",
+      "kopplingar": [["Gmail", "leverantörsmejl"], ["Binokel Insikt", "leverantörer och fakturor"], ["Personalappen", "inloggning"]],
+      "pagar": ["Fler butiker efter piloten", "Packa och skicka flyttar till GlasFlow när centrallagret startar"]
+    },
+    {
+      "id": "synpunkten", "namn": "Synpunkten", "grupp": "personal", "status": "drift", "ikon": "synpunkten.png",
+      "kort": "Avvikelser, reklamationer och förbättringsförslag.",
+      "gor": "Personalen rapporterar det som inte fungerar. AI sorterar och hittar mönster. En driftkontroll provar appen var 30:e minut och larmar.",
+      "varfor": "En gemensam bild av vad som går fel, varför, och vad som minskar risken att det händer igen.",
+      "anvands_av": "All personal och ledning.",
+      "inloggning": "Google eller e-post, bara företagsdomäner.",
+      "databas": "Supabase (eget konto)", "repo": "opti-care-hub-8b5c98d0", "adress": "opti-care-hub.lovable.app",
+      "kopplingar": [["GlasFlow", "orderavvikelser in"], ["Binokel Insikt", "antal per butik"]],
+      "pagar": ["F71: tilldela ett ärende till en person", "F73: tydligare reklamationsflöde", "F74: appen hänger sig vid byte från reklamation till avvikelse"]
+    },
+    {
+      "id": "hemsidan", "namn": "Hemsidan och webbshoppen", "grupp": "personal", "status": "drift", "ikon": "hemsidan.svg",
+      "kort": "niemisoptiknorrland.se, webbshop och recensioner.",
+      "gor": "Hemsidan med bokning, butiker och omdömen. Webbshoppen tar betalt med Stripe och skickar ordern till GlasFlow. Admin skriver svar på Google-recensioner.",
+      "varfor": "Kunder hittar oss och kan handla. Recensionerna besvaras snabbt.",
+      "anvands_av": "Kunder. Admin för recensioner och produkter.",
+      "inloggning": "Admin via inloggningslänk.",
+      "databas": "Lovable Cloud", "repo": "clear-vision-north", "adress": "niemisoptiknorrland.se",
+      "kopplingar": [["Stripe", "betalning"], ["GlasFlow", "betalda order"], ["Google Business", "recensioner"], ["Reco", "omdömen"]],
+      "pagar": []
+    },
+    {
+      "id": "blueprint", "namn": "Blueprint", "grupp": "bakom", "status": "drift", "ikon": "blueprint.svg",
+      "kort": "Systemkartan, besluten och planerna.",
+      "gor": "Register över alla system, kopplingar, beslut, kända luckor och initiativ. Agenterna läser och skriver här. Tekniska id:n för varje app finns här.",
+      "varfor": "En plats som beskriver hur allt hänger ihop, utan verksamhetsdata.",
+      "anvands_av": "Daniel, Christian, Hugo och agenterna.",
+      "inloggning": "Godkända konton.",
+      "databas": "Lovable Cloud", "repo": "binokel-blueprint", "adress": "binokel-blueprint.lovable.app",
+      "kopplingar": [["Alla appar", "beskrivs här"], ["Agent Core", "samordning"]],
+      "pagar": ["Ta in fler appar", "Larm när en publicerad app ligger efter koden"]
+    },
+    {
+      "id": "nyckelvalvet", "namn": "Nyckelvalvet", "grupp": "bakom", "status": "drift", "ikon": "nyckelvalvet.svg",
+      "kort": "Krypterat valv för lösenord och nycklar.",
+      "gor": "Alla företagets lösenord och API-nycklar, krypterat och loggat.",
+      "varfor": "Ersätter lösenordslistor som låg öppet i Drive.",
+      "anvands_av": "Behörig personal.",
+      "inloggning": "Bara Google, godkända domäner.",
+      "databas": "Lovable Cloud", "repo": "", "adress": "binokel-nyckelvalv.lovable.app",
+      "kopplingar": [], "pagar": []
+    },
+    {
+      "id": "motorer", "namn": "Motorerna", "aka": "Natt, kunskap och tim", "grupp": "bakom", "status": "drift", "ikon": "motorerna.svg",
+      "kort": "Agenter som jobbar schemalagt.",
+      "gor": "Nattmotorn granskar drift, säkerhet och kod. Kunskapsmotorn bygger kunskapsbanken från Drive och mejl. Timagenten sorterar inkorgen. Agent Core håller ordning på vem som gör vad.",
+      "varfor": "Fel upptäcks på natten och Daniel får färdiga beslut på morgonen.",
+      "anvands_av": "Daniel får rapporterna.",
+      "inloggning": "Ingen.",
+      "databas": "Supabase (eget konto) och Blueprint", "repo": "", "adress": "",
+      "kopplingar": [["Blueprint", "loggar och beslut"], ["Gmail", "inkorgen"], ["Google Drive", "kunskap"]],
+      "pagar": ["Sätt nattflödet i drift med skyddsräcken"]
+    },
+    {
+      "id": "bagar", "namn": "Bågar till ServeIT", "grupp": "bakom", "status": "pilot", "ikon": "bagar-serveit.svg",
+      "kort": "Läser av bågar till ServeIT-import.",
+      "gor": "Fotar prislappar och leverantörsunderlag för bågar och gör en fil som kan läsas in i ServeIT.",
+      "varfor": "Slipper skriva in nya bågar för hand.",
+      "anvands_av": "Butikspersonal.",
+      "inloggning": "E-post och lösenord.",
+      "databas": "Lovable Cloud", "repo": "temple-tally-app", "adress": "",
+      "kopplingar": [["ServeIT", "bågregister", true]],
+      "pagar": ["Saknas i Blueprint och behöver registreras"]
+    },
+    {
+      "id": "navigator", "namn": "Eyewear Navigator", "grupp": "bakom", "status": "avveckl", "ikon": "eyewear-navigator.svg",
+      "kort": "Gammalt verktyg för sortiment till Säljstödet.",
+      "gor": "Skriver sortiment och priser direkt i Säljstödets databas.",
+      "varfor": "Avvecklas när Säljstödets egen admin har tagit över.",
+      "anvands_av": "Admin.",
+      "inloggning": "Google.",
+      "databas": "Lovable Cloud", "repo": "eyewear-navigator", "adress": "",
+      "kopplingar": [["Säljstödet", "sortiment och priser"]],
+      "pagar": ["Avvecklas"]
+    }
+  ],
+  "gemensamt": [
+    {
+      "namn": "Hjälp-knappen: Fråga Iris och Ge feedback",
+      "vad": "En knapp i hörnet av varje intern app. Fråga Iris svarar utifrån Academys lektioner och rutiner. Ge feedback öppnar appens egen feedback. Byggs som ett delat skript (iris.js) i Academy och läggs in med en rad i varje app.",
+      "agare": "Niemis Academy",
+      "lage": "byggs",
+      "har": ["glasflow", "saljstod", "kunduppfoljning", "insikt", "academy"],
+      "pa_vag": ["personal", "synpunkten", "formatning", "spargris", "bestallning"],
+      "not": "Fråga Iris finns redan i fem appar. Knappen med båda valen blev klar i Academy 9 november och kopplas in app för app. Kundvända sidor (Anamnes, Hemsidan) ska inte ha den."
+    },
+    {
+      "namn": "Feedback där bara den som rapporterade godkänner",
+      "vad": "Samma steg i alla appar: Ny, Redo att testa, Godkänd eller Återöppnad. Bara den som skickade in punkten kan sätta Godkänd, och databasen spärrar alla andra vägar.",
+      "agare": "Personalappen (Binokel Feedback Kit)",
+      "lage": "drift",
+      "har": ["personal", "insikt", "glasflow", "saljstod", "academy", "kunduppfoljning", "synpunkten", "formatning", "spargris"],
+      "pa_vag": [],
+      "not": "Personalappen och Insikt använder samma kopierbara paket. Övriga har egen kod med samma regel."
+    },
+    {
+      "namn": "Vem är du? (whoami)",
+      "vad": "Personalappen talar om vem som är inloggad, vilka butiker personen har och vad hen får göra. Andra appar frågar Personalappen i stället för att ha egna personallistor.",
+      "agare": "Personalappen",
+      "lage": "drift",
+      "har": ["academy", "insikt", "bestallning", "formatning"],
+      "pa_vag": [],
+      "not": "Nästa steg är att samma person får samma behörighet i alla appar."
+    },
+    {
+      "namn": "Siffror till Binokel Insikt",
+      "vad": "Varje app skickar bara antal och summor per butik och månad till Insikt, aldrig kunder, patienter eller löner. Samma mönster i alla appar: en läsande export med egen nyckel.",
+      "agare": "Binokel Insikt",
+      "lage": "drift",
+      "har": ["glasflow", "saljstod", "kunduppfoljning", "anamnes", "synpunkten", "personal"],
+      "pa_vag": [],
+      "not": ""
+    },
+    {
+      "namn": "Claude-kopplingar",
+      "vad": "De flesta appar har en egen koppling så att Claude kan läsa och hjälpa till, med samma behörighet som personen som använder den.",
+      "agare": "Varje app",
+      "lage": "drift",
+      "har": ["glasflow", "saljstod", "kunduppfoljning", "academy", "insikt", "bestallning", "synpunkten", "formatning", "spargris", "blueprint"],
+      "pa_vag": [],
+      "not": ""
+    },
+    {
+      "namn": "Utvecklingsstandarden",
+      "vad": "Samma arbetssätt i varje repo: egen gren, automatisk kontroll före push, oberoende granskning, merge med skript och kontroll i den publicerade appen.",
+      "agare": "Skillen binokel-utveckling",
+      "lage": "drift",
+      "har": ["glasflow", "saljstod", "kunduppfoljning", "anamnes", "formatning", "personal", "academy", "insikt", "spargris", "bestallning", "synpunkten", "hemsidan"],
+      "pa_vag": ["blueprint"],
+      "not": ""
+    },
+    {
+      "namn": "Niemis utseende och ikoner",
+      "vad": "Mörkblått, ljusblått, orange bara för det som kräver uppmärksamhet, och typsnittet Lato. Ikonerna får samma familj: mörkblå ruta, Niemis-ögat och en orange detalj.",
+      "agare": "Säljstödet (designprofilen)",
+      "lage": "byggs",
+      "har": ["saljstod", "insikt", "bestallning", "academy", "personal", "synpunkten", "formatning"],
+      "pa_vag": ["glasflow", "kunduppfoljning", "anamnes", "spargris", "hemsidan", "blueprint"],
+      "not": ""
+    }
+  ],
+  "externa": [["ServeIT", "journal, kassa och order (KlarSynt)"], ["Fortnox", "lön och bokföring"], ["Flopay", "kassa och betalning, tidigare Northmill"], ["PostNord", "frakt"], ["Telavox", "telefoni"], ["Twilio", "SMS"], ["Stripe", "webbshoppens betalning"], ["Resend", "mejl från apparna"], ["Google Workspace", "konton, Drive, Gmail och Chat"], ["Clerk", "inloggning i Anamnesportalen"], ["Reco", "omdömen"], ["Diller", "kundklubb, avvecklas"]],
+  "resan": [
+    ["anamnesportalen.svg", "Före besöket", "Anamnesportalen", "Kunden svarar på hälsofrågorna hemma.", "Sammanfattningen förs in i ServeIT", true],
+    ["formatning.png", "Förmätning", "Förmätningsappen", "Personalen mäter, optikern granskar på distans.", "Värdena förs in i ServeIT", true],
+    ["serveit.svg", "Undersökning", "ServeIT", "Journal, recept och kassa. Externt system.", "Ordinationen fotas in i Säljstödet", true],
+    ["saljstod.png", "Glasval", "Säljstödet", "Glas, paket och pris väljs med kunden.", "EAN skannas i kassan, ordern fotas in i GlasFlow", true],
+    ["glasflow-b.svg", "Order och leverans", "GlasFlow", "Ordern följs via montering och PostNord till kunden.", "Status och köp skickas automatiskt", false],
+    ["kunduppfoljning.svg", "Efteråt", "Kunduppföljning", "Optikern följer upp kunden. Problem går till Synpunkten.", "", false]
+  ],
+  "planer": [
+    ["Gemensam Hjälp-knapp i alla interna appar", "Fråga Iris och Ge feedback på samma ställe. Kopplas in app för app."],
+    ["Samma behörighet överallt", "Samma person ska ha samma behörighet i alla appar och motorer."],
+    ["Larm när en app ligger efter koden", "Den publicerade versionen ska inte släpa efter GitHub."],
+    ["Gemensam SMS-tjänst", "GlasFlow och Kunduppföljning skickar SMS var för sig. Vägval efter Christians mejl."],
+    ["Onboarding 2.0", "Rutinbibliotek i Academy efter KlarSynt-bytet."],
+    ["Nattflödet i drift", "Med skyddsräcken så att nattmotorn inte gör för mycket."],
+    ["Avveckla Eyewear Navigator och Diller", "Säljstödet och Kunduppföljning tar över."],
+    ["Feedbackrättningar", "Öppna punkter i GlasFlow, Synpunkten, Personalappen och Academy."]
+  ],
+  "ikonbyten": [["glasflow-old.svg", "glasflow-b.svg", "GlasFlow"], ["kunduppfoljning-old.png", "kunduppfoljning.svg", "Kunduppföljning"], ["anamnes-old.png", "anamnesportalen.svg", "Anamnes"], ["blueprint-old.png", "blueprint.svg", "Blueprint"], ["insikt-old.png", "insikt.svg", "Insikt"], ["spargris-old.png", "spargris.svg", "Spargris"], ["bestallning-old.png", "bestallning.svg", "Beställning"], ["hemsidan-old.png", "hemsidan.svg", "Hemsidan"], ["bagar-old.png", "bagar-serveit.svg", "Bågar"], ["navigator-old.png", "eyewear-navigator.svg", "Navigator"]],
+  "glasflow_forslag": [["glasflow-old.svg", "Idag", "Liknar en uppdatera-knapp", false], ["glasflow-a.svg", "A · På väg", "Glasögon och en rutt som slutar med en bock", false], ["glasflow-b.svg", "B · Linsen i flödet", "Niemis-ögat i en lins som bärs framåt", true], ["glasflow-c.svg", "C · I rörelse", "Glasögon med fartstreck", false]]
+}

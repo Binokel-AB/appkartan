@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <title>Niemis Academy</title>
+  <rect width="512" height="512" rx="112" fill="#2D3E66"/>
+  <!-- Öppen bok: två vita sidor -->
+  <path d="M256 168 C214 140 160 132 106 140 V372 C160 364 214 372 256 400 Z" fill="#FFFFFF"/>
+  <path d="M256 168 C298 140 352 132 406 140 V372 C352 364 298 372 256 400 Z" fill="#F1F3F9"/>
+  <!-- Orange bokmärke -->
+  <path d="M338 134 H374 V214 L356 198 L338 214 Z" fill="#E6670C"/>
+  <!-- Niemis-ögat över uppslaget -->
+  <path d="M152 286 A118 118 0 0 1 360 286 A118 118 0 0 1 152 286 Z" fill="#1B5EAA"/>
+  <path d="M176 286 A100 100 0 0 1 336 286 A100 100 0 0 1 176 286 Z" fill="#FFFFFF"/>
+  <circle cx="256" cy="286" r="40" fill="#1B5EAA"/>
+</svg>

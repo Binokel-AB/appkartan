@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Binokels Appkarta</title>
+<meta name="description" content="Alla Binokels och Niemis Optiks appar: vad de gör, hur de hänger ihop och vad som pågår.">
+<meta name="theme-color" content="#2D3E66">
+<link rel="icon" href="icons/appkartan.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/appkartan.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <img src="icons/appkartan.svg" alt="">
+  <div><h1>Binokels Appkarta</h1><p id="updated">Alla appar, hur de hänger ihop och varför de finns</p></div>
+</div></header>
+<nav class="tabs" aria-label="Avsnitt"><div class="wrap">
+  <a href="#start">Start</a><a href="#appar">Appar</a><a href="#gemensamt">Gemensamt</a><a href="#flodet">Så hänger det ihop</a><a href="#planer">Planer</a><a href="#ikoner">Ikoner</a><a href="#ta-over">Ta över</a>
+</div></nav>
+
+<main><div class="wrap">
+
+<section data-view="start">
+  <div class="hero">
+    <div class="eyebrow">Binokel AB · Niemis Optik</div>
+    <h2>Våra egna appar finns för att butikerna ska slippa dubbelarbete.</h2>
+    <p class="lead">ServeIT är kärnan med journal och kassa. Runt den har vi byggt appar för det ServeIT inte gör: hälsofrågor före besöket, glasval, orderspårning, uppföljning, personal, utbildning och nyckeltal. Flera delar är gemensamma för alla appar, till exempel Hjälp-knappen och inloggningen via Personalappen.</p>
+  </div>
+  <div class="facts4" id="facts"></div>
+  <div class="go">
+    <a href="#appar">Alla appar <span>vad varje app gör →</span></a>
+    <a href="#gemensamt">Gemensamt för alla appar <span>Hjälp-knappen, feedback, inloggning →</span></a>
+    <a href="#flodet">Så hänger det ihop <span>kundens resa och grunden →</span></a>
+    <a href="#ta-over">Om du ska ta över <span>sju regler →</span></a>
+  </div>
+</section>
+
+<section data-view="appar" hidden>
+  <div><h2 class="sec">Alla appar</h2><p class="lead">Tryck på en app för att se vad den gör, varför den finns, var koden ligger och vad som pågår.</p></div>
+  <div class="filters" role="group" aria-label="Filtrera">
+    <button type="button" data-f="alla" aria-pressed="true">Alla</button>
+    <button type="button" data-f="kundresan" aria-pressed="false">Kundresan</button>
+    <button type="button" data-f="personal" aria-pressed="false">Personal och ledning</button>
+    <button type="button" data-f="bakom" aria-pressed="false">Bakom kulisserna</button>
+    <button type="button" data-f="ext" aria-pressed="false">Externa system</button>
+  </div>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section data-view="gemensamt" hidden>
+  <div><h2 class="sec">Gemensamt för alla appar</h2><p class="lead">Det här byggs en gång och används i många appar. Rätta det på ett ställe, så blir det rätt överallt.</p></div>
+  <div class="key"><span><i></i>finns i appen</span><span><i class="vag"></i>på väg</span></div>
+  <div class="shared" id="shared"></div>
+  <h2 class="sec">Allt på en gång</h2>
+  <div class="matrix-wrap"><table class="matrix" id="matrix"></table></div>
+</section>
+
+<section data-view="flodet" hidden>
+  <div><h2 class="sec">Kundens resa genom apparna</h2><p class="lead">Från att kunden bokar till att glasögonen är levererade och följs upp. Journal och kassa ligger alltid i ServeIT, aldrig i våra appar.</p></div>
+  <div class="legend"><span><i></i>automatisk överföring</span><span><i class="man"></i>manuell (kopiera eller foto)</span></div>
+  <div class="card journey" id="journey"></div>
+  <div class="card layers">
+    <h2 class="sec">Grunden som allt står på</h2>
+    <div class="layer"><h3>GitHub – koden</h3><p>Organisationen Binokel-AB. Allt byggs här först. Repon under Binokel/ är gamla kopior.</p></div>
+    <div class="layer"><h3>Lovable – förhandsvisning och publicering</h3><p>Synkar med GitHub åt båda håll. Används sist, i första hand för att publicera. Bara gratis dagliga krediter.</p></div>
+    <div class="layer"><h3>Databaser</h3><p>GlasFlow, Kunduppföljning, Anamnesportalen, Synpunkten och agenternas samordning har databaser i vårt eget Supabase-konto. Övriga appar har sin databas i Lovable Cloud. Tekniska id:n finns i Blueprint.</p></div>
+    <div class="layer"><h3>Inloggning</h3><p>Personalappen talar om vem du är och vilka butiker du har. Academy, Insikt, Beställning och Förmätningsappen frågar den. Övriga loggar in med Google Workspace eller e-post. Anamnesportalen använder Clerk.</p></div>
+    <div class="layer"><h3>Agenterna</h3><p>Claude når apparna via egna kopplingar. Nattmotorn, Kunskapsmotorn och Timagenten kör schemalagt. Agent Core hindrar att två agenter tar samma ärende.</p></div>
+  </div>
+  <div class="card"><h2 class="sec">Externa system vi är beroende av</h2><div class="chips" id="ext" style="margin-top:10px"></div></div>
+</section>
+
+<section data-view="planer" hidden>
+  <div><h2 class="sec">Det som pågår nu</h2><p class="lead">De större planerna. Varje apps egna punkter finns under Appar.</p></div>
+  <div class="card" id="plans"></div>
+</section>
+
+<section data-view="ikoner" hidden>
+  <div><h2 class="sec">En gemensam ikonfamilj</h2><p class="lead">Mörkblå ruta, Niemis-ögat i blått och en orange detalj. Appar som hade Lovables standardhjärta får egna ikoner, och GlasFlow får en ny bild.</p></div>
+  <div class="card"><h2 class="sec">Ny ikon till GlasFlow</h2><p class="lead" style="margin:4px 0 12px">Förslag. Daniel väljer.</p><div class="gf" id="gf"></div></div>
+  <div class="card"><h2 class="sec">Före och efter</h2><p class="lead" style="margin:4px 0 12px">Vänster är dagens ikon, höger är den nya.</p><div class="cmp" id="cmp"></div></div>
+  <div><h2 class="sec" style="margin-bottom:10px">Så ser det ut på en hemskärm</h2><div class="home" id="home"></div></div>
+</section>
+
+<section data-view="ta-over" hidden>
+  <div><h2 class="sec">Om du ska ta över</h2><p class="lead">Det viktigaste att veta innan du ändrar något.</p></div>
+  <div class="card rules">
+    <div><b class="n">1</b><span><b>Daniel beslutar.</b> Christian (COO) har full admin och får rätta buggar direkt. Hugo sköter IT och dataskydd på deltid.</span></div>
+    <div><b class="n">2</b><span><b>GitHub först, Lovable sist.</b> Ändra koden i Binokel-AB på en egen gren, låt Lovable synka och publicera där. Använd bara gratis dagliga krediter.</span></div>
+    <div><b class="n">3</b><span><b>ServeIT är journalen.</b> Bygg aldrig en egen journal. Våra appar kopierar till och från ServeIT.</span></div>
+    <div><b class="n">4</b><span><b>Rör inte CRM-nattmotorn.</b> De här delarna i Kunduppföljning är frysta: sync-legacy, process-jobs, enqueue-daily-jobs, expire-dormant, activate-due-rechecks, cron, insikt_kund_aggregat, create_store_snapshot och feedback_status_guard.</span></div>
+    <div><b class="n">5</b><span><b>Gjort är inte publicerat.</b> Säg "provat i appen" först när du sett ändringen i den publicerade appen.</span></div>
+    <div><b class="n">6</b><span><b>Lösenord finns i Nyckelvalvet.</b> Aldrig i Drive, mejl eller den här sidan.</span></div>
+    <div><b class="n">7</b><span><b>Kund- och patientdata stannar i sin app.</b> Insikt och den här sidan visar aldrig personuppgifter.</span></div>
+  </div>
+  <div class="card"><h2 class="sec">Så uppdaterar du den här sidan</h2><p class="lead" style="margin-top:6px">All text står i filen data/appar.json i repot Binokel-AB/appkartan. Ändra där, så publiceras sidan om automatiskt. Ingen Lovable behövs.</p></div>
+  <footer id="sources"></footer>
+</section>
+
+</div></main>
+
+<div class="sheet" id="sheet" hidden><div class="panel" role="dialog" aria-modal="true" aria-labelledby="dTitle" id="panel"></div></div>
+<script src="app.js" defer></script>
+</body>
+</html>
