@@ -1,0 +1,765 @@
+{
+ "kontrollerad": "2026-11-10",
+ "metod": "Kontrollen läser koden i varje repo och frågar databasen i drift om radskydd och rättigheter. Det som inte har kontrollerats står som ej kontrollerat.",
+ "ordning": [
+  "rls",
+  "rattigheter",
+  "hemligheter",
+  "serverfunktioner",
+  "andringar",
+  "tester",
+  "backup",
+  "feedback"
+ ],
+ "rubriker": {
+  "rls": "Vem ser vad (RLS)",
+  "rattigheter": "Rättigheter i databasen",
+  "hemligheter": "Hemligheter",
+  "serverfunktioner": "Serverfunktioner",
+  "andringar": "Ändringar i koden",
+  "tester": "Tester",
+  "backup": "Säkerhetskopior",
+  "feedback": "Öppen feedback"
+ },
+ "appar": {
+  "glasflow": {
+   "teknik": [
+    "React och Vite",
+    "TypeScript",
+    "Supabase (databas och inloggning)",
+    "GitHub (kod)",
+    "Lovable (publicering)",
+    "25 serverfunktioner (edge functions)"
+   ],
+   "punkter": {
+    "rls": [
+     "ok",
+     "Radskydd (RLS) är påslaget på alla 56 tabeller. Kontrollerat i databasen i drift."
+    ],
+    "rattigheter": [
+     "atgard",
+     "Databasen har kvar rättigheter som inte behövs. Radskyddet stoppar åtkomsten i dag, men rättigheterna ska tas bort så att skyddet är dubbelt."
+    ],
+    "hemligheter": [
+     "ok",
+     "Inga hemliga nycklar hittades i koden (automatisk sökning). Bara den publika nyckeln ligger i repot, som den ska."
+    ],
+    "tester": [
+     "ok",
+     "46 testfiler. Typkontroll, tester och bygge körs automatiskt på varje ändring (Förkontroll), och en röd ändring stoppas."
+    ],
+    "andringar": [
+     "ok",
+     "Varje ändring går via en egen gren och en granskad PR. Direkt ändring av huvudkoden stoppas."
+    ],
+    "serverfunktioner": [
+     "ej",
+     "25 serverfunktioner finns. Inloggningskravet på var och en är ej kontrollerat i den här genomgången."
+    ],
+    "backup": [
+     "ej",
+     "Ej kontrollerat. Vi har inte verifierat hur ofta databasen säkerhetskopieras eller provat en återläsning."
+    ],
+    "feedback": [
+     "ej",
+     "Antal öppna feedbackpunkter är ej kontrollerat i den här genomgången."
+    ]
+   },
+   "granskning": [
+    "2026-11-10",
+    "Automatisk grundkontroll: radskydd, rättigheter i databasen och nycklar i koden. En full säkerhetsgranskning av en granskare är ej gjord i det här formatet."
+   ],
+   "kod": "150 databasändringar (migrationer) i repot",
+   "version": "2026-11-10"
+  },
+  "kunduppfoljning": {
+   "teknik": [
+    "React och Vite",
+    "TypeScript",
+    "Supabase (databas och inloggning)",
+    "GitHub (kod)",
+    "Lovable (publicering)",
+    "20 serverfunktioner (edge functions)"
+   ],
+   "punkter": {
+    "rls": [
+     "ok",
+     "Radskydd (RLS) är påslaget på alla 55 tabeller. Kontrollerat i databasen i drift."
+    ],
+    "rattigheter": [
+     "atgard",
+     "Databasen har kvar rättigheter som inte behövs. Radskyddet stoppar åtkomsten i dag, men rättigheterna ska tas bort så att skyddet är dubbelt."
+    ],
+    "hemligheter": [
+     "ok",
+     "Inga hemliga nycklar hittades i koden (automatisk sökning). Bara den publika nyckeln ligger i repot, som den ska."
+    ],
+    "tester": [
+     "ok",
+     "39 testfiler. Typkontroll, tester och bygge körs automatiskt på varje ändring (Förkontroll), och en röd ändring stoppas."
+    ],
+    "andringar": [
+     "ok",
+     "Varje ändring går via en egen gren och en granskad PR. Direkt ändring av huvudkoden stoppas."
+    ],
+    "serverfunktioner": [
+     "ej",
+     "20 serverfunktioner finns. Inloggningskravet på var och en är ej kontrollerat i den här genomgången."
+    ],
+    "backup": [
+     "ej",
+     "Ej kontrollerat. Vi har inte verifierat hur ofta databasen säkerhetskopieras eller provat en återläsning."
+    ],
+    "feedback": [
+     "ej",
+     "Antal öppna feedbackpunkter är ej kontrollerat i den här genomgången."
+    ]
+   },
+   "granskning": [
+    "2026-11-10",
+    "Automatisk grundkontroll: radskydd, rättigheter i databasen och nycklar i koden. En full säkerhetsgranskning av en granskare är ej gjord i det här formatet."
+   ],
+   "kod": "112 databasändringar (migrationer) i repot",
+   "version": "2026-11-10",
+   "notis": "Nattmotorn är frusen och rörs inte av några kontroller eller rättningar."
+  },
+  "saljstod": {
+   "teknik": [
+    "React och Vite",
+    "TypeScript",
+    "Supabase (databas och inloggning)",
+    "GitHub (kod)",
+    "Lovable (publicering)",
+    "4 serverfunktioner (edge functions)"
+   ],
+   "punkter": {
+    "rls": [
+     "ok",
+     "Radskydd (RLS) är påslaget på alla 36 tabeller. Kontrollerat i databasen i drift."
+    ],
+    "rattigheter": [
+     "ok",
+     "Utloggade besökare har ingen skrivrätt på någon tabell, och ingen tabell kan tömmas av appens användare."
+    ],
+    "hemligheter": [
+     "ok",
+     "Inga hemliga nycklar hittades i koden (automatisk sökning). Bara den publika nyckeln ligger i repot, som den ska."
+    ],
+    "tester": [
+     "ok",
+     "236 testfiler. Typkontroll, tester och bygge körs automatiskt på varje ändring (Förkontroll), och en röd ändring stoppas."
+    ],
+    "andringar": [
+     "ok",
+     "Varje ändring går via en egen gren och en granskad PR. Direkt ändring av huvudkoden stoppas."
+    ],
+    "serverfunktioner": [
+     "ej",
+     "4 serverfunktioner finns. Inloggningskravet på var och en är ej kontrollerat i den här genomgången."
+    ],
+    "backup": [
+     "ej",
+     "Ej kontrollerat. Vi har inte verifierat hur ofta databasen säkerhetskopieras eller provat en återläsning."
+    ],
+    "feedback": [
+     "ej",
+     "Antal öppna feedbackpunkter är ej kontrollerat i den här genomgången."
+    ]
+   },
+   "granskning": [
+    "2026-11-10",
+    "Oberoende granskning av prisimporten: godkänd. Dessutom automatisk grundkontroll av radskydd, rättigheter och nycklar i koden: inga fel."
+   ],
+   "kod": "131 databasändringar (migrationer) i repot",
+   "version": "2026-11-10"
+  },
+  "anamnes": {
+   "teknik": [
+    "React och Vite",
+    "TypeScript",
+    "Supabase (databas och inloggning)",
+    "Clerk (inloggning för optiker)",
+    "GitHub (kod)",
+    "Lovable (publicering)",
+    "18 serverfunktioner (edge functions)"
+   ],
+   "punkter": {
+    "rls": [
+     "ej",
+     "Ej kontrollerat i drift (databasen nås inte av kontrollen). I koden slår migrationerna på radskydd för 36 av 38 tabeller som skapas där."
+    ],
+    "rattigheter": [
+     "ej",
+     "Ej kontrollerat."
+    ],
+    "hemligheter": [
+     "ok",
+     "Inga hemliga nycklar hittades i koden (automatisk sökning). Bara den publika nyckeln ligger i repot, som den ska."
+    ],
+    "tester": [
+     "ok",
+     "30 testfiler. Typkontroll, tester och bygge körs automatiskt på varje ändring (Förkontroll), och en röd ändring stoppas."
+    ],
+    "andringar": [
+     "ok",
+     "Varje ändring går via en egen gren och en granskad PR. Direkt ändring av huvudkoden stoppas."
+    ],
+    "serverfunktioner": [
+     "ej",
+     "18 serverfunktioner finns. Inloggningskravet på var och en är ej kontrollerat i den här genomgången."
+    ],
+    "backup": [
+     "ej",
+     "Ej kontrollerat. Vi har inte verifierat hur ofta databasen säkerhetskopieras eller provat en återläsning."
+    ],
+    "feedback": [
+     "ej",
+     "Antal öppna feedbackpunkter är ej kontrollerat i den här genomgången."
+    ]
+   },
+   "granskning": [
+    "2026-11-10",
+    "Automatisk grundkontroll: radskydd, rättigheter i databasen och nycklar i koden. En full säkerhetsgranskning av en granskare är ej gjord i det här formatet."
+   ],
+   "kod": "108 databasändringar (migrationer) i repot",
+   "version": "2026-11-10"
+  },
+  "formatning": {
+   "teknik": [
+    "React och Vite",
+    "TypeScript",
+    "Supabase (databas och inloggning)",
+    "GitHub (kod)",
+    "Lovable (publicering)",
+    "14 serverfunktioner (edge functions)"
+   ],
+   "punkter": {
+    "rls": [
+     "ok",
+     "Radskydd (RLS) är påslaget på alla 14 tabeller. Kontrollerat i databasen i drift."
+    ],
+    "rattigheter": [
+     "atgard",
+     "Databasen har kvar rättigheter som inte behövs. Radskyddet stoppar åtkomsten i dag, men rättigheterna ska tas bort så att skyddet är dubbelt."
+    ],
+    "hemligheter": [
+     "ok",
+     "Inga hemliga nycklar hittades i koden (automatisk sökning). Bara den publika nyckeln ligger i repot, som den ska."
+    ],
+    "tester": [
+     "ok",
+     "52 testfiler. Typkontroll, tester och bygge körs automatiskt på varje ändring (Förkontroll), och en röd ändring stoppas."
+    ],
+    "andringar": [
+     "ok",
+     "Varje ändring går via en egen gren och en granskad PR. Direkt ändring av huvudkoden stoppas."
+    ],
+    "serverfunktioner": [
+     "ej",
+     "14 serverfunktioner finns. Inloggningskravet på var och en är ej kontrollerat i den här genomgången."
+    ],
+    "backup": [
+     "ej",
+     "Ej kontrollerat. Vi har inte verifierat hur ofta databasen säkerhetskopieras eller provat en återläsning."
+    ],
+    "feedback": [
+     "ej",
+     "Antal öppna feedbackpunkter är ej kontrollerat i den här genomgången."
+    ]
+   },
+   "granskning": [
+    "2026-11-10",
+    "Automatisk grundkontroll: radskydd, rättigheter i databasen och nycklar i koden. En full säkerhetsgranskning av en granskare är ej gjord i det här formatet."
+   ],
+   "kod": "78 databasändringar (migrationer) i repot",
+   "version": "2026-11-10"
+  },
+  "personal": {
+   "teknik": [
+    "TanStack Start",
+    "TypeScript",
+    "Supabase (databas och inloggning)",
+    "GitHub (kod)",
+    "Lovable (publicering)"
+   ],
+   "punkter": {
+    "rls": [
+     "ok",
+     "Radskydd (RLS) är påslaget på alla 98 tabeller. Kontrollerat i databasen i drift."
+    ],
+    "rattigheter": [
+     "atgard",
+     "Databasen har kvar rättigheter som inte behövs. Radskyddet stoppar åtkomsten i dag, men rättigheterna ska tas bort så att skyddet är dubbelt."
+    ],
+    "hemligheter": [
+     "ok",
+     "Inga hemliga nycklar hittades i koden (automatisk sökning). Bara den publika nyckeln ligger i repot, som den ska."
+    ],
+    "tester": [
+     "ok",
+     "195 testfiler. Typkontroll, tester och bygge körs automatiskt på varje ändring (Förkontroll), och en röd ändring stoppas."
+    ],
+    "andringar": [
+     "ok",
+     "Varje ändring går via en egen gren och en granskad PR. Direkt ändring av huvudkoden stoppas."
+    ],
+    "serverfunktioner": [
+     "ok",
+     "Inga edge functions. Serverkoden ligger i appen."
+    ],
+    "backup": [
+     "ej",
+     "Ej kontrollerat. Vi har inte verifierat hur ofta databasen säkerhetskopieras eller provat en återläsning."
+    ],
+    "feedback": [
+     "ej",
+     "Antal öppna feedbackpunkter är ej kontrollerat i den här genomgången."
+    ]
+   },
+   "granskning": [
+    "2026-11-10",
+    "Automatisk grundkontroll: radskydd, rättigheter i databasen och nycklar i koden. En full säkerhetsgranskning av en granskare är ej gjord i det här formatet."
+   ],
+   "kod": "118 databasändringar (migrationer) i repot",
+   "version": "2026-11-10"
+  },
+  "academy": {
+   "teknik": [
+    "TanStack Start",
+    "TypeScript",
+    "Supabase (databas och inloggning)",
+    "GitHub (kod)",
+    "Lovable (publicering)"
+   ],
+   "punkter": {
+    "rls": [
+     "ok",
+     "Radskydd (RLS) är påslaget på alla 20 tabeller. Kontrollerat i databasen i drift."
+    ],
+    "rattigheter": [
+     "atgard",
+     "Databasen har kvar rättigheter som inte behövs. Radskyddet stoppar åtkomsten i dag, men rättigheterna ska tas bort så att skyddet är dubbelt."
+    ],
+    "hemligheter": [
+     "ok",
+     "Inga hemliga nycklar hittades i koden (automatisk sökning). Bara den publika nyckeln ligger i repot, som den ska."
+    ],
+    "tester": [
+     "ok",
+     "58 testfiler. Typkontroll, tester och bygge körs automatiskt på varje ändring (Förkontroll), och en röd ändring stoppas."
+    ],
+    "andringar": [
+     "ok",
+     "Varje ändring går via en egen gren och en granskad PR. Direkt ändring av huvudkoden stoppas."
+    ],
+    "serverfunktioner": [
+     "ok",
+     "Inga edge functions. Serverkoden ligger i appen."
+    ],
+    "backup": [
+     "ej",
+     "Ej kontrollerat. Vi har inte verifierat hur ofta databasen säkerhetskopieras eller provat en återläsning."
+    ],
+    "feedback": [
+     "ej",
+     "Antal öppna feedbackpunkter är ej kontrollerat i den här genomgången."
+    ]
+   },
+   "granskning": [
+    "2026-11-10",
+    "Automatisk grundkontroll: radskydd, rättigheter i databasen och nycklar i koden. En full säkerhetsgranskning av en granskare är ej gjord i det här formatet."
+   ],
+   "kod": "14 databasändringar (migrationer) i repot",
+   "version": "2026-11-10"
+  },
+  "insikt": {
+   "teknik": [
+    "TanStack Start",
+    "TypeScript",
+    "Supabase (databas och inloggning)",
+    "GitHub (kod)",
+    "Lovable (publicering)"
+   ],
+   "punkter": {
+    "rls": [
+     "ok",
+     "Radskydd (RLS) är påslaget på alla 54 tabeller. Kontrollerat i databasen i drift."
+    ],
+    "rattigheter": [
+     "atgard",
+     "Databasen har kvar rättigheter som inte behövs. Radskyddet stoppar åtkomsten i dag, men rättigheterna ska tas bort så att skyddet är dubbelt."
+    ],
+    "hemligheter": [
+     "ok",
+     "Inga hemliga nycklar hittades i koden (automatisk sökning). Bara den publika nyckeln ligger i repot, som den ska."
+    ],
+    "tester": [
+     "ok",
+     "86 testfiler. Typkontroll, tester och bygge körs automatiskt på varje ändring (Förkontroll), och en röd ändring stoppas."
+    ],
+    "andringar": [
+     "ok",
+     "Varje ändring går via en egen gren och en granskad PR. Direkt ändring av huvudkoden stoppas."
+    ],
+    "serverfunktioner": [
+     "ok",
+     "Inga edge functions. Serverkoden ligger i appen."
+    ],
+    "backup": [
+     "ej",
+     "Ej kontrollerat. Vi har inte verifierat hur ofta databasen säkerhetskopieras eller provat en återläsning."
+    ],
+    "feedback": [
+     "ej",
+     "Antal öppna feedbackpunkter är ej kontrollerat i den här genomgången."
+    ]
+   },
+   "granskning": [
+    "2026-11-10",
+    "Automatisk grundkontroll: radskydd, rättigheter i databasen och nycklar i koden. En full säkerhetsgranskning av en granskare är ej gjord i det här formatet."
+   ],
+   "kod": "47 databasändringar (migrationer) i repot",
+   "version": "2026-11-10"
+  },
+  "spargris": {
+   "teknik": [
+    "React och Vite",
+    "TypeScript",
+    "Supabase (databas och inloggning)",
+    "GitHub (kod)",
+    "Lovable (publicering)",
+    "7 serverfunktioner (edge functions)"
+   ],
+   "punkter": {
+    "rls": [
+     "ok",
+     "Radskydd (RLS) är påslaget på alla 14 tabeller. Kontrollerat i databasen i drift."
+    ],
+    "rattigheter": [
+     "atgard",
+     "Databasen har kvar rättigheter som inte behövs. Radskyddet stoppar åtkomsten i dag, men rättigheterna ska tas bort så att skyddet är dubbelt."
+    ],
+    "hemligheter": [
+     "ok",
+     "Inga hemliga nycklar hittades i koden (automatisk sökning). Bara den publika nyckeln ligger i repot, som den ska."
+    ],
+    "tester": [
+     "ok",
+     "9 testfiler. Typkontroll, tester och bygge körs automatiskt på varje ändring (Förkontroll), och en röd ändring stoppas."
+    ],
+    "andringar": [
+     "ok",
+     "Varje ändring går via en egen gren och en granskad PR. Direkt ändring av huvudkoden stoppas."
+    ],
+    "serverfunktioner": [
+     "ej",
+     "7 serverfunktioner finns. Inloggningskravet på var och en är ej kontrollerat i den här genomgången."
+    ],
+    "backup": [
+     "ej",
+     "Ej kontrollerat. Vi har inte verifierat hur ofta databasen säkerhetskopieras eller provat en återläsning."
+    ],
+    "feedback": [
+     "ej",
+     "Antal öppna feedbackpunkter är ej kontrollerat i den här genomgången."
+    ]
+   },
+   "granskning": [
+    "2026-11-10",
+    "Automatisk grundkontroll: radskydd, rättigheter i databasen och nycklar i koden. En full säkerhetsgranskning av en granskare är ej gjord i det här formatet."
+   ],
+   "kod": "27 databasändringar (migrationer) i repot",
+   "version": "2026-11-10"
+  },
+  "bestallning": {
+   "teknik": [
+    "React och Vite",
+    "TypeScript",
+    "Supabase (databas och inloggning)",
+    "GitHub (kod)",
+    "Lovable (publicering)",
+    "9 serverfunktioner (edge functions)"
+   ],
+   "punkter": {
+    "rls": [
+     "ok",
+     "Radskydd (RLS) är påslaget på alla 26 tabeller. Kontrollerat i databasen i drift."
+    ],
+    "rattigheter": [
+     "atgard",
+     "Databasen har kvar rättigheter som inte behövs. Radskyddet stoppar åtkomsten i dag, men rättigheterna ska tas bort så att skyddet är dubbelt."
+    ],
+    "hemligheter": [
+     "ok",
+     "Inga hemliga nycklar hittades i koden (automatisk sökning). Bara den publika nyckeln ligger i repot, som den ska."
+    ],
+    "tester": [
+     "ok",
+     "15 testfiler. Typkontroll, tester och bygge körs automatiskt på varje ändring (Förkontroll), och en röd ändring stoppas."
+    ],
+    "andringar": [
+     "ok",
+     "Varje ändring går via en egen gren och en granskad PR. Direkt ändring av huvudkoden stoppas."
+    ],
+    "serverfunktioner": [
+     "ej",
+     "9 serverfunktioner finns. Inloggningskravet på var och en är ej kontrollerat i den här genomgången."
+    ],
+    "backup": [
+     "ej",
+     "Ej kontrollerat. Vi har inte verifierat hur ofta databasen säkerhetskopieras eller provat en återläsning."
+    ],
+    "feedback": [
+     "ej",
+     "Antal öppna feedbackpunkter är ej kontrollerat i den här genomgången."
+    ]
+   },
+   "granskning": [
+    "2026-11-10",
+    "Automatisk grundkontroll: radskydd, rättigheter i databasen och nycklar i koden. En full säkerhetsgranskning av en granskare är ej gjord i det här formatet."
+   ],
+   "kod": "31 databasändringar (migrationer) i repot",
+   "version": "2026-11-10"
+  },
+  "synpunkten": {
+   "teknik": [
+    "React och Vite",
+    "TypeScript",
+    "Supabase (databas och inloggning)",
+    "GitHub (kod)",
+    "Lovable (publicering)",
+    "21 serverfunktioner (edge functions)"
+   ],
+   "punkter": {
+    "rls": [
+     "ok",
+     "Radskydd (RLS) är påslaget på alla 36 tabeller. Kontrollerat i databasen i drift."
+    ],
+    "rattigheter": [
+     "atgard",
+     "Databasen har kvar rättigheter som inte behövs. Radskyddet stoppar åtkomsten i dag, men rättigheterna ska tas bort så att skyddet är dubbelt."
+    ],
+    "hemligheter": [
+     "ok",
+     "Inga hemliga nycklar hittades i koden (automatisk sökning). Bara den publika nyckeln ligger i repot, som den ska."
+    ],
+    "tester": [
+     "ok",
+     "21 testfiler. Typkontroll, tester och bygge körs automatiskt på varje ändring (Förkontroll), och en röd ändring stoppas."
+    ],
+    "andringar": [
+     "ok",
+     "Varje ändring går via en egen gren och en granskad PR. Direkt ändring av huvudkoden stoppas."
+    ],
+    "serverfunktioner": [
+     "ej",
+     "21 serverfunktioner finns. Inloggningskravet på var och en är ej kontrollerat i den här genomgången."
+    ],
+    "backup": [
+     "ej",
+     "Ej kontrollerat. Vi har inte verifierat hur ofta databasen säkerhetskopieras eller provat en återläsning."
+    ],
+    "feedback": [
+     "ej",
+     "Antal öppna feedbackpunkter är ej kontrollerat i den här genomgången."
+    ]
+   },
+   "granskning": [
+    "2026-11-10",
+    "Automatisk grundkontroll: radskydd, rättigheter i databasen och nycklar i koden. En full säkerhetsgranskning av en granskare är ej gjord i det här formatet."
+   ],
+   "kod": "71 databasändringar (migrationer) i repot",
+   "version": "2026-11-04"
+  },
+  "hemsidan": {
+   "teknik": [
+    "React och Vite",
+    "TypeScript",
+    "Supabase (databas och inloggning)",
+    "GitHub (kod)",
+    "Lovable (publicering)",
+    "10 serverfunktioner (edge functions)"
+   ],
+   "punkter": {
+    "rls": [
+     "ok",
+     "Radskydd (RLS) är påslaget på alla 13 tabeller. Kontrollerat i databasen i drift."
+    ],
+    "rattigheter": [
+     "ok",
+     "Utloggade besökare har ingen skrivrätt på någon tabell, och ingen tabell kan tömmas av appens användare."
+    ],
+    "hemligheter": [
+     "ok",
+     "Inga hemliga nycklar hittades i koden (automatisk sökning). Bara den publika nyckeln ligger i repot, som den ska."
+    ],
+    "tester": [
+     "ok",
+     "8 testfiler. Typkontroll, tester och bygge körs automatiskt på varje ändring (Förkontroll), och en röd ändring stoppas."
+    ],
+    "andringar": [
+     "ok",
+     "Varje ändring går via en egen gren och en granskad PR. Direkt ändring av huvudkoden stoppas."
+    ],
+    "serverfunktioner": [
+     "ej",
+     "10 serverfunktioner finns. Inloggningskravet på var och en är ej kontrollerat i den här genomgången."
+    ],
+    "backup": [
+     "ej",
+     "Ej kontrollerat. Vi har inte verifierat hur ofta databasen säkerhetskopieras eller provat en återläsning."
+    ],
+    "feedback": [
+     "ej",
+     "Antal öppna feedbackpunkter är ej kontrollerat i den här genomgången."
+    ]
+   },
+   "granskning": [
+    "2026-11-10",
+    "Automatisk grundkontroll: radskydd, rättigheter i databasen och nycklar i koden. En full säkerhetsgranskning av en granskare är ej gjord i det här formatet."
+   ],
+   "kod": "13 databasändringar (migrationer) i repot",
+   "version": "2026-11-10"
+  },
+  "blueprint": {
+   "teknik": [
+    "TanStack Start",
+    "TypeScript",
+    "Supabase (databas och inloggning)",
+    "GitHub (kod)",
+    "Lovable (publicering)"
+   ],
+   "punkter": {
+    "rls": [
+     "ok",
+     "Radskydd (RLS) är påslaget på alla 45 tabeller. Kontrollerat i databasen i drift."
+    ],
+    "rattigheter": [
+     "atgard",
+     "Databasen har kvar rättigheter som inte behövs. Radskyddet stoppar åtkomsten i dag, men rättigheterna ska tas bort så att skyddet är dubbelt."
+    ],
+    "hemligheter": [
+     "ok",
+     "Inga hemliga nycklar hittades i koden (automatisk sökning). Bara den publika nyckeln ligger i repot, som den ska."
+    ],
+    "tester": [
+     "atgard",
+     "Inga automatiska tester och ingen automatisk kontroll av ändringar."
+    ],
+    "andringar": [
+     "atgard",
+     "Ingen spärr mot direkta ändringar i huvudkoden."
+    ],
+    "serverfunktioner": [
+     "ok",
+     "Inga edge functions. Serverkoden ligger i appen."
+    ],
+    "backup": [
+     "ej",
+     "Ej kontrollerat. Vi har inte verifierat hur ofta databasen säkerhetskopieras eller provat en återläsning."
+    ],
+    "feedback": [
+     "ej",
+     "Antal öppna feedbackpunkter är ej kontrollerat i den här genomgången."
+    ]
+   },
+   "granskning": [
+    "2026-11-10",
+    "Automatisk grundkontroll: radskydd, rättigheter i databasen och nycklar i koden. En full säkerhetsgranskning av en granskare är ej gjord i det här formatet."
+   ],
+   "kod": "30 databasändringar (migrationer) i repot",
+   "version": "2026-11-10",
+   "notis": "Sidorna stängs för människor och tabellerna flyttas till Agent Core (beslut 10 november)."
+  },
+  "nyckelvalvet": {
+   "teknik": [
+    "Ej kontrollerat"
+   ],
+   "punkter": {
+    "rls": [
+     "ej",
+     "Ej kontrollerat."
+    ],
+    "rattigheter": [
+     "ej",
+     "Ej kontrollerat."
+    ],
+    "hemligheter": [
+     "ej",
+     "Ej kontrollerat."
+    ],
+    "tester": [
+     "ej",
+     "Ej kontrollerat."
+    ],
+    "andringar": [
+     "ej",
+     "Ej kontrollerat."
+    ],
+    "serverfunktioner": [
+     "ej",
+     "Ej kontrollerat."
+    ],
+    "backup": [
+     "ej",
+     "Ej kontrollerat. Vi har inte verifierat hur ofta databasen säkerhetskopieras eller provat en återläsning."
+    ],
+    "feedback": [
+     "ej",
+     "Antal öppna feedbackpunkter är ej kontrollerat i den här genomgången."
+    ]
+   },
+   "granskning": [
+    "",
+    "Ej kontrollerat. Det finns inget repo att granska."
+   ],
+   "kod": "Inget repo",
+   "version": ""
+  },
+  "motorer": {
+   "teknik": [
+    "Ej kontrollerat"
+   ],
+   "punkter": {
+    "rls": [
+     "ej",
+     "Ej kontrollerat."
+    ],
+    "rattigheter": [
+     "ej",
+     "Ej kontrollerat."
+    ],
+    "hemligheter": [
+     "ej",
+     "Ej kontrollerat."
+    ],
+    "tester": [
+     "ej",
+     "Ej kontrollerat."
+    ],
+    "andringar": [
+     "ej",
+     "Ej kontrollerat."
+    ],
+    "serverfunktioner": [
+     "ej",
+     "Ej kontrollerat."
+    ],
+    "backup": [
+     "ej",
+     "Ej kontrollerat. Vi har inte verifierat hur ofta databasen säkerhetskopieras eller provat en återläsning."
+    ],
+    "feedback": [
+     "ej",
+     "Antal öppna feedbackpunkter är ej kontrollerat i den här genomgången."
+    ]
+   },
+   "granskning": [
+    "",
+    "Ej kontrollerat. Det finns inget repo att granska."
+   ],
+   "kod": "Inget repo",
+   "version": ""
+  }
+ }
+}
