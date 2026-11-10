@@ -518,24 +518,23 @@
   "gemensamt": [
     {
       "namn": "niemis-hjalp: Hjälp-knappen",
-      "vad": "Det delade paketet niemis-hjalp ger varje intern app samma Hjälp-knapp i hörnet med två val: Fråga Iris, som svarar utifrån Academys lektioner och rutiner, och Ge feedback, som öppnar appens egen feedback. Paketet byggs i Academy och läggs in med en rad i varje app.",
-      "agare": "Niemis Academy",
+      "vad": "En och samma Hjälp-knapp nere till höger i varje intern app, med Fråga Iris, Ge feedback och Min feedback. Det är en enda fil (hjalp.js) som varje app läser in med en rad. Appen kopplar sin egen feedbacktabell till knappen, så en ändring i niemis-hjalp når alla appar på en gång.",
+      "agare": "Repot Binokel/niemis-hjalp (publiceras med GitHub Pages)",
       "lage": "byggs",
-      "har": [
-        "glasflow",
-        "saljstod",
-        "kunduppfoljning",
-        "insikt",
-        "academy"
-      ],
+      "har": [],
       "pa_vag": [
+        "saljstod",
         "personal",
+        "insikt",
+        "kunduppfoljning",
+        "glasflow",
         "synpunkten",
         "formatning",
         "spargris",
-        "bestallning"
+        "anamnes",
+        "academy"
       ],
-      "not": "Fråga Iris finns redan i fem appar. niemis-hjalp med båda valen kopplas in app för app. Kundvända sidor (Anamnesportalen, Hemsidan) ska inte ha knappen."
+      "not": "Daniels beslut 9 november: samma knapp i alla appar. Fråga Iris finns redan i fem appar via Academys äldre knapp. niemis-hjalp kopplas in app för app. I Anamnesportalen bara i personalens vy, aldrig för kunder."
     },
     {
       "namn": "Feedback där bara den som rapporterade godkänner",
