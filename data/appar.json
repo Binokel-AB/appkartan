@@ -15,7 +15,7 @@
       "inloggning": "E-post och lösenord eller Google.",
       "databas": "Supabase (eget konto)",
       "repo": "glasflow-order-track",
-      "adress": "glasflow-order-track.lovable.app",
+      "adress": "glasflow.niemisoptiknorrland.se",
       "kopplingar": [
         [
           "ServeIT",
@@ -70,7 +70,7 @@
       "inloggning": "Google eller e-post och lösenord.",
       "databas": "Supabase (eget konto)",
       "repo": "huggy-beacon",
-      "adress": "huggy-beacon.lovable.app",
+      "adress": "uppfoljning.niemisoptiknorrland.se",
       "kopplingar": [
         [
           "GlasFlow",
@@ -148,7 +148,7 @@
       "inloggning": "Clerk för optiker. Kunder via engångslänk.",
       "databas": "Supabase (eget konto)",
       "repo": "anamnesis-guardian-portal",
-      "adress": "anamnes.binokeloptik.se",
+      "adress": "anamnes.niemisoptiknorrland.se",
       "kopplingar": [
         [
           "ServeIT",
