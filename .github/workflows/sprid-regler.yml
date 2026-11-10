@@ -32,7 +32,19 @@ jobs:
         with:
           node-version: 20
       - run: node --test scripts/sprid-regler.test.mjs
+      - name: Kontrollera att SPRID_TOKEN finns
+        id: token
+        env:
+          SPRID_TOKEN: ${{ secrets.SPRID_TOKEN }}
+        run: |
+          if [ -z "$SPRID_TOKEN" ]; then
+            echo "::notice title=Sprid regler hoppades över::Hemligheten SPRID_TOKEN är inte skapad än. Inget har ändrats. Se README, avsnittet Spridning av regler."
+            echo "finns=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "finns=true" >> "$GITHUB_OUTPUT"
+          fi
       - name: Sprid reglerna
+        if: steps.token.outputs.finns == 'true'
         env:
           SPRID_TOKEN: ${{ secrets.SPRID_TOKEN }}
           TORRKORNING: ${{ github.event_name == 'workflow_dispatch' && inputs.torrkorning && '--torrkorning' || '' }}

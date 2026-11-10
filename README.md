@@ -31,7 +31,7 @@ python3 -m http.server 8000   # öppna http://localhost:8000
 
 - Ett repos egen `CLAUDE.md` skrivs inte över. Reglerna hamnar i `.claude/binokel-regler.md` och importeras med en rad.
 - Repon i listan hämtas ur `repo`-fälten i `data/appar.json`.
-- **Engångsinställning:** skapa en åtkomsttoken (fine-grained, bara de repon som ska få regler) med *Contents: Read and write* och *Pull requests: Read and write*, ge den *inte* Administration, och spara den som hemligheten `SPRID_TOKEN` i detta repo (Settings → Secrets and variables → Actions). Utan den stannar körningen med ett tydligt fel.
+- **Engångsinställning:** skapa en åtkomsttoken (fine-grained, bara de repon som ska få regler) med *Contents: Read and write* och *Pull requests: Read and write*, ge den *inte* Administration, och spara den som hemligheten `SPRID_TOKEN` i detta repo (Settings → Secrets and variables → Actions). Utan den hoppas körningen över med ett tydligt meddelande (inget ändras och inget blir rött).
 - Prova först: Actions → Sprid regler → Run workflow (torrkörning är förvald och ändrar ingenting).
 - Är det första regel-PR:et (`claude/lagg-till-regler`) fortfarande öppet i ett repo hoppas det repot över.
 
