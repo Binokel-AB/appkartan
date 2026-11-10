@@ -38,7 +38,7 @@ jobs:
       - name: Packa bara det som ska synas
         run: |
           mkdir _site
-          cp -r index.html sakerhet.html app.js sakerhet.js style.css data icons img _site/
+          cp -r index.html sakerhet.html roller.html app.js sakerhet.js roller.js style.css data icons img _site/
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

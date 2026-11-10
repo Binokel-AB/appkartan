@@ -54,7 +54,16 @@ if (Sk) {
 }
 
 // Sidan kan vara publik: inga personuppgifter, hemligheter eller databas-id:n.
-const text = readFileSync("data/appar.json", "utf8") + (Sk ? JSON.stringify(Sk) : "");
+// Roller och beslut: data/roller.json ska ha rollerna ägare och granskare med namn och lista.
+let Ro = null;
+try { Ro = JSON.parse(readFileSync("data/roller.json", "utf8")); } catch (e) { fel.push("data/roller.json är inte giltig JSON: " + e.message); }
+if (Ro) {
+  const rid = new Set((Ro.roller ?? []).map((r) => r.id));
+  for (const k of ["agare", "granskare"]) if (!rid.has(k)) fel.push(`roller.json: rollen ${k} saknas`);
+  for (const r of Ro.roller ?? []) if (!r.namn || !r.person || !r.kort || !Array.isArray(r.godkanner) || !r.godkanner.length) fel.push(`roller.json: rollen ${r.id} saknar namn, person, kort eller godkanner`);
+  if (!Array.isArray(Ro.flode) || !Array.isArray(Ro.ta_over)) fel.push("roller.json: flode och ta_over ska vara listor");
+}
+const text = readFileSync("data/appar.json", "utf8") + (Sk ? JSON.stringify(Sk) : "") + (Ro ? JSON.stringify(Ro) : "");
 const SPARR = [
   [/\b\d{6}[-+]?\d{4}\b/, "något som liknar ett personnummer"],
   [/\b07\d[\s-]?\d{3}[\s-]?\d{2}[\s-]?\d{2}\b/, "något som liknar ett mobilnummer"],
