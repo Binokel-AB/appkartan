@@ -95,11 +95,12 @@
       ],
       "frusen": true,
       "pagar": [
+        "Ska bli Binokels CRM-system (Daniels beslut 10 november); nattmotorns frysta delar rörs inte",
         "Statusbrickan på Översikt räknas utan uppföljningsstatus",
         "Komplett test av SMS-chatten i kundkortet",
         "Gemensam SMS-tjänst med GlasFlow (vägval)"
       ],
-      "varfor_kort": "Ingen kund glöms bort efter köpet."
+      "varfor_kort": "Vårt CRM: ingen kund glöms bort efter köpet."
     },
     {
       "id": "saljstod",
@@ -129,7 +130,8 @@
       ],
       "pagar": [
         "Ska börja om på första sidan efter omstart men behålla kunden vid kort byte",
-        "Rodenstocks regel om andra paret är inte verifierad för 2026"
+        "Rodenstocks regel om andra paret är inte verifierad för 2026",
+        "Ny prislista från Brilliant kan i dag bara läsas in via Eyewear Navigator, som avvecklas – Säljstödet behöver en egen import"
       ],
       "varfor_kort": "Rätt glas, paket och pris i alla butiker."
     },
@@ -343,7 +345,7 @@
         ]
       ],
       "pagar": [
-        "Varje konto ska bli medlem i alla butiker automatiskt"
+        "Byggs in i Binokel Insikt som butiksvy; ligger kvar tills Älvsbyn har bytt (Daniels beslut 10 november)"
       ],
       "varfor_kort": "Butikerna ser varje dag hur det går mot målet."
     },
@@ -472,8 +474,8 @@
         ]
       ],
       "pagar": [
-        "Ta in fler appar",
-        "Larm när en publicerad app ligger efter koden"
+        "Sidorna för människor stängs; Appkartan ersätter överblicken (Daniels beslut 10 november)",
+        "Tabellerna flyttas till Agent Core enligt flyttplanen i PR #2"
       ],
       "varfor_kort": "Agenternas karta över system, beslut och planer."
     },
@@ -776,32 +778,32 @@
       "Samma Hjälp-knapp med Fråga Iris och Ge feedback. Kopplas in app för app."
     ],
     [
+      "Kunduppföljning blir vårt CRM",
+      "Behålls som egen app. Nattmotorns frysta delar rörs inte."
+    ],
+    [
+      "Spargris in i Insikt",
+      "En butiksvy i Insikt. Spargris ligger kvar tills Älvsbyn har bytt."
+    ],
+    [
+      "Blueprint stängs för människor",
+      "Appkartan ersätter överblicken. Tabellerna flyttas till Agent Core."
+    ],
+    [
+      "Eyewear Navigator avvecklas",
+      "Har inte ändrat något i Säljstödet sedan 27 juli. Säljstödet behöver egen import av Brilliants prislista."
+    ],
+    [
       "Samma behörighet överallt",
       "Samma person ska ha samma behörighet i alla appar och motorer."
     ],
     [
-      "Larm när en app ligger efter koden",
-      "Den publicerade versionen ska inte släpa efter GitHub."
-    ],
-    [
       "Gemensam SMS-tjänst",
-      "GlasFlow och Kunduppföljning skickar SMS var för sig. Vägval efter Christians mejl."
+      "GlasFlow och Kunduppföljning skickar SMS var för sig."
     ],
     [
       "Onboarding 2.0",
       "Rutinbibliotek i Academy efter KlarSynt-bytet."
-    ],
-    [
-      "Nattflödet i drift",
-      "Med skyddsräcken så att nattmotorn inte gör för mycket."
-    ],
-    [
-      "Avveckla Eyewear Navigator och Diller",
-      "Säljstödets egen admin och Kunduppföljning tar över. Eyewear Navigator visas därför inte som egen app."
-    ],
-    [
-      "Feedbackrättningar",
-      "Öppna punkter i GlasFlow, Synpunkten, Personalappen och Academy."
     ]
   ],
   "ikonbyten": [

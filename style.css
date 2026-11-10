@@ -124,3 +124,8 @@ ul.plain{margin:0;padding-left:1.1em;display:grid;gap:3px}
 .tech dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin:8px 0 0;font-size:.88rem}
 .tech dt{color:var(--muted)} .tech dd{margin:0;min-width:0}
 @media (prefers-reduced-motion:no-preference){.panel{animation:up .2s ease-out}@keyframes up{from{transform:translateY(20px);opacity:.6}}}
+
+/* Planer */
+.plans{display:grid;gap:8px}
+.plan{display:grid;gap:2px;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--orange);border-radius:12px;padding:10px 12px}
+.plan span{color:var(--muted);font-size:.9rem}

@@ -96,6 +96,9 @@
     $("rollout").innerHTML = `<div class="key"><span><i></i>har knappen</span><span><i class="vag"></i>på väg</span></div><div class="users">${h.har.map((id) => u(id, false)).join("")}${h.pa_vag.map((id) => u(id, true)).join("")}</div>`;
   }
 
+  // ---------- Planer ----------
+  $("plans").innerHTML = D.planer.map(([t, m]) => `<div class="plan"><b>${esc(t)}</b><span>${esc(m)}</span></div>`).join("");
+
   // ---------- Stilen ----------
   $("iconwall").innerHTML = APPS.filter((a) => a.id !== "motorer").map((a) => `<div><img src="${ic(a.ikon)}" alt=""><span>${esc(short(a))}</span></div>`).join("");
 
