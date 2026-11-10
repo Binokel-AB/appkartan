@@ -41,7 +41,8 @@ jobs:
           ref: main
       - name: Hämta PR:ens sakerhet.json
         if: steps.filer.outputs.ok == 'ja'
-        run: gh api "repos/$GITHUB_REPOSITORY/contents/data/sakerhet.json?ref=$SHA" -H "Accept: application/vnd.github.raw" > data/sakerhet.json
+        run: |
+          gh api "repos/$GITHUB_REPOSITORY/contents/data/sakerhet.json?ref=$SHA" -H "Accept: application/vnd.github.raw" > data/sakerhet.json
       - uses: actions/setup-node@v4
         if: steps.filer.outputs.ok == 'ja'
         with:
