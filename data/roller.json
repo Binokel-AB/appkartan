@@ -1,0 +1,89 @@
+{
+ "uppdaterad": "2026-11-10",
+ "ingress": "Apparna sköts av AI-agenter som bara lämnar förslag. En människa godkänner varje ändring. Här står vem som får godkänna vad. Rollerna är skrivna så att vem som helst som får rollen kan driva arbetet.",
+ "roller": [
+  {
+   "id": "agare",
+   "namn": "Ägare",
+   "person": "Daniel",
+   "kort": "Bestämmer riktningen och allt som är känsligt.",
+   "godkanner": [
+    "Behörigheter, radskydd (RLS), roller och hemligheter",
+    "Patient- och kunddata, och allt som raderar något",
+    "Pengar: betalningar, Fortnox, priser och avtal",
+    "Utskick till personal, kunder eller leverantörer",
+    "Nya appar, nedläggningar och större ombyggnader",
+    "CRM-nattmotorn i Kunduppföljning"
+   ],
+   "github": ""
+  },
+  {
+   "id": "granskare",
+   "namn": "COO",
+   "person": "Christian",
+   "kort": "Driver det dagliga: godkänner vardagsrättningarna så att arbetet aldrig står still.",
+   "godkanner": [
+    "Rättningar av personalens feedback: buggar, texter och utseende",
+    "Tester och robusthet som inte ändrar hur appen fungerar",
+    "Publicering av det som redan är granskat och grönt",
+    "Innehåll i Academy och på Hemsidan"
+   ],
+   "github": "",
+   "gor": [
+    "Öppnar listan Att godkänna i dag varje morgon (ett issue i GitHub, en rad och en länk per sak)",
+    "Läser vad som ändras och varför, och provar vid behov",
+    "Trycker Godkänn: ändringen läggs in och publiceras av sig själv",
+    "Skriver en kommentar om något är fel: agenten rättar och lägger tillbaka saken på listan",
+    "Skickar vidare till Ägaren om saken är märkt Godkänns av: Ägare eller känns för stor"
+   ]
+  },
+  {
+   "id": "it",
+   "namn": "IT och dataskydd",
+   "person": "Hugo",
+   "kort": "Sköter konton, enheter och dataskydd.",
+   "godkanner": [
+    "Rådfrågas före ändringar som rör personuppgifter",
+    "Konton och åtkomst för personal"
+   ]
+  },
+  {
+   "id": "agenter",
+   "namn": "AI-agenterna",
+   "person": "Claude, ledda av Grok",
+   "kort": "Hittar fel, rättar och föreslår. Godkänner aldrig sitt eget arbete.",
+   "godkanner": [
+    "Ingenting. Varje ändring är ett förslag (en PR) som en människa godkänner",
+    "Undantag: sidan Byggd och skyddad uppdateras av sig själv när kontrollen är grön"
+   ]
+  }
+ ],
+ "flode": [
+  [
+   "Agenten hittar något",
+   "Feedback från personalen, ett fel eller en säkerhetsbrist."
+  ],
+  [
+   "Agenten lämnar ett förslag",
+   "En PR i GitHub med raden Godkänns av: Granskare (det är COO) eller Godkänns av: Ägare."
+  ],
+  [
+   "En oberoende agent granskar",
+   "En annan agent, som inte skrev ändringen, läser och testar den. Först därefter hamnar den på listan."
+  ],
+  [
+   "Rätt människa svarar",
+   "Godkänn = ändringen läggs in och publiceras. Kommentar = agenten rättar och lägger tillbaka den på listan."
+  ],
+  [
+   "Ändringen provas i den publicerade appen",
+   "Först då får den som rapporterade felet frågan om det fungerar."
+  ]
+ ],
+ "ta_over": [
+  "Byt namnet och GitHub-kontot på rollen i filen data/roller.json. Det är två rader.",
+  "Ge den nya personen åtkomst till GitHub-organisationen Binokel-AB och ta bort den gamla.",
+  "Lösenord och nycklar byts i Nyckelvalvet, aldrig här.",
+  "Reglerna för agenterna står i CLAUDE.md i varje repo och ändras inte av att en person byts."
+ ]
+}
