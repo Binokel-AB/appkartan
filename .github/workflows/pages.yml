@@ -24,6 +24,7 @@ jobs:
         with:
           node-version: 20
       - run: node scripts/kontrollera.mjs
+      - run: node --test scripts/sprid-regler.test.mjs
 
   publicera:
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'

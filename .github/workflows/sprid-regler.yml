@@ -1,0 +1,39 @@
+name: Sprid regler
+
+# Öppnar PR:er i alla appars repon när appkartans CLAUDE.md eller agenter ändras.
+# Mergar aldrig något. Kräver hemligheten SPRID_TOKEN (se README).
+on:
+  push:
+    branches: [main]
+    paths:
+      - CLAUDE.md
+      - .claude/agents/**
+      - scripts/sprid-regler.mjs
+  workflow_dispatch:
+    inputs:
+      torrkorning:
+        description: "Visa bara vad som skulle ändras (inga pushar, inga PR)"
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sprid-regler
+  cancel-in-progress: false
+
+jobs:
+  sprid:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node --test scripts/sprid-regler.test.mjs
+      - name: Sprid reglerna
+        env:
+          SPRID_TOKEN: ${{ secrets.SPRID_TOKEN }}
+          TORRKORNING: ${{ github.event_name == 'workflow_dispatch' && inputs.torrkorning && '--torrkorning' || '' }}
+        run: node scripts/sprid-regler.mjs $TORRKORNING
