@@ -53,7 +53,8 @@
         "Databasen svarar ibland långsamt",
         "Feedbackknappen fungerar inte när en dialog är öppen",
         "Ny ikon"
-      ]
+      ],
+      "varfor_kort": "Butiker och montörer ser var varje glasögonorder är, så att ingen behöver ringa runt."
     },
     {
       "id": "kunduppfoljning",
@@ -97,7 +98,8 @@
         "Statusbrickan på Översikt räknas utan uppföljningsstatus",
         "Komplett test av SMS-chatten i kundkortet",
         "Gemensam SMS-tjänst med GlasFlow (vägval)"
-      ]
+      ],
+      "varfor_kort": "Ingen kund glöms bort efter köpet."
     },
     {
       "id": "saljstod",
@@ -128,7 +130,8 @@
       "pagar": [
         "Ska börja om på första sidan efter omstart men behålla kunden vid kort byte",
         "Rodenstocks regel om andra paret är inte verifierad för 2026"
-      ]
+      ],
+      "varfor_kort": "Rätt glas, paket och pris i alla butiker."
     },
     {
       "id": "anamnes",
@@ -158,7 +161,8 @@
       "pagar": [
         "Publicerad version ligger efter koden i GitHub",
         "Kort länk i påminnelsen för billigare SMS"
-      ]
+      ],
+      "varfor_kort": "Kunden svarar på hälsofrågorna hemma, så att optikern är förberedd."
     },
     {
       "id": "formatning",
@@ -186,7 +190,8 @@
           "notiser"
         ]
       ],
-      "pagar": []
+      "pagar": [],
+      "varfor_kort": "Butiker utan optiker på plats kan ändå ta emot kunder."
     },
     {
       "id": "personal",
@@ -224,7 +229,8 @@
         "F03: register för kliniska delegeringar",
         "Kontrollera mejl vid sjuk- och VAB-anmälan",
         "Samma person ska ha samma behörighet i alla appar"
-      ]
+      ],
+      "varfor_kort": "Schema, tid och lön på ett ställe, och appen som talar om vem du är i de andra apparna."
     },
     {
       "id": "academy",
@@ -262,7 +268,8 @@
         "Rätta sju rutiner efter feedback (kortterminal, myopi, körkort m.fl.)",
         "Kundens ärende i tidboken",
         "Onboarding 2.0 efter KlarSynt-bytet"
-      ]
+      ],
+      "varfor_kort": "Ny personal kommer snabbt igång och alla hittar rätt rutin."
     },
     {
       "id": "insikt",
@@ -311,7 +318,8 @@
       ],
       "pagar": [
         "Byggs etapp för etapp enligt specifikationen v7"
-      ]
+      ],
+      "varfor_kort": "Ledningen ser hur butikerna går utan att leta i fem system."
     },
     {
       "id": "spargris",
@@ -336,7 +344,8 @@
       ],
       "pagar": [
         "Varje konto ska bli medlem i alla butiker automatiskt"
-      ]
+      ],
+      "varfor_kort": "Butikerna ser varje dag hur det går mot målet."
     },
     {
       "id": "bestallning",
@@ -369,7 +378,8 @@
       "pagar": [
         "Fler butiker efter piloten",
         "Packa och skicka flyttar till GlasFlow när centrallagret startar"
-      ]
+      ],
+      "varfor_kort": "Lagret fylls på utan listor och bristmejl."
     },
     {
       "id": "synpunkten",
@@ -399,7 +409,8 @@
         "F71: tilldela ett ärende till en person",
         "F73: tydligare reklamationsflöde",
         "F74: appen hänger sig vid byte från reklamation till avvikelse"
-      ]
+      ],
+      "varfor_kort": "Det som går fel blir synligt, så att det inte händer igen."
     },
     {
       "id": "hemsidan",
@@ -433,7 +444,8 @@
           "omdömen"
         ]
       ],
-      "pagar": []
+      "pagar": [],
+      "varfor_kort": "Kunder hittar oss, bokar och handlar."
     },
     {
       "id": "blueprint",
@@ -462,7 +474,8 @@
       "pagar": [
         "Ta in fler appar",
         "Larm när en publicerad app ligger efter koden"
-      ]
+      ],
+      "varfor_kort": "Agenternas karta över system, beslut och planer."
     },
     {
       "id": "nyckelvalvet",
@@ -479,7 +492,8 @@
       "repo": "",
       "adress": "binokel-nyckelvalv.lovable.app",
       "kopplingar": [],
-      "pagar": []
+      "pagar": [],
+      "varfor_kort": "Lösenord och nycklar ligger säkert, inte i Drive."
     },
     {
       "id": "motorer",
@@ -512,7 +526,8 @@
       ],
       "pagar": [
         "Sätt nattflödet i drift med skyddsräcken"
-      ]
+      ],
+      "varfor_kort": "AI som kontrollerar drift och säkerhet på natten och sorterar inkorgen."
     }
   ],
   "gemensamt": [

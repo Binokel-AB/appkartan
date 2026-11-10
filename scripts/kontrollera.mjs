@@ -17,7 +17,7 @@ const ikon = (f, var_) => { if (!existsSync("icons/" + f)) fel.push(`${var_}: ik
 
 for (const a of D.appar ?? []) {
   const v = `App "${a.namn ?? a.id}"`;
-  for (const k of ["id", "namn", "grupp", "status", "ikon", "kort", "gor", "varfor", "anvands_av", "inloggning", "databas"]) {
+  for (const k of ["id", "namn", "grupp", "status", "ikon", "kort", "gor", "varfor", "anvands_av", "inloggning", "databas", "varfor_kort"]) {
     if (!a[k]) fel.push(`${v}: fältet ${k} saknas`);
   }
   if (ids.has(a.id)) fel.push(`${v}: id ${a.id} finns två gånger`);
