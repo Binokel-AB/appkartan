@@ -240,7 +240,7 @@
     ],
     "rattigheter": [
      "atgard",
-     "Databasen har kvar rättigheter som inte behövs. Radskyddet stoppar åtkomsten i dag, men rättigheterna ska tas bort så att skyddet är dubbelt."
+     "Rätten att tömma tabeller är borttagen sedan 2026-11-10, efter oberoende granskning. Kvar att granska: de regler som släpper in utloggade besökare på några tabeller."
     ],
     "hemligheter": [
      "ok",
@@ -269,7 +269,7 @@
    },
    "granskning": [
     "2026-11-10",
-    "Automatisk grundkontroll: radskydd, rättigheter i databasen och nycklar i koden. En full säkerhetsgranskning av en granskare är ej gjord i det här formatet."
+    "Oberoende granskning av rättighetsstädningen: godkänd, och kontrollerad i databasen i drift. Dessutom automatisk grundkontroll av radskydd och nycklar i koden."
    ],
    "kod": "78 databasändringar (migrationer) i repot",
    "version": "2026-11-10"
@@ -337,8 +337,8 @@
      "Radskydd (RLS) är påslaget på alla 20 tabeller. Kontrollerat i databasen i drift."
     ],
     "rattigheter": [
-     "atgard",
-     "Databasen har kvar rättigheter som inte behövs. Radskyddet stoppar åtkomsten i dag, men rättigheterna ska tas bort så att skyddet är dubbelt."
+     "ok",
+     "Utloggade besökare har ingen skrivrätt på någon tabell, och ingen tabell kan tömmas av appens användare. Onödiga rättigheter togs bort 2026-11-10 efter oberoende granskning."
     ],
     "hemligheter": [
      "ok",
@@ -367,7 +367,7 @@
    },
    "granskning": [
     "2026-11-10",
-    "Automatisk grundkontroll: radskydd, rättigheter i databasen och nycklar i koden. En full säkerhetsgranskning av en granskare är ej gjord i det här formatet."
+    "Oberoende granskning av rättighetsstädningen: godkänd, och kontrollerad i databasen i drift. Dessutom automatisk grundkontroll av radskydd och nycklar i koden."
    ],
    "kod": "14 databasändringar (migrationer) i repot",
    "version": "2026-11-10"
@@ -386,8 +386,8 @@
      "Radskydd (RLS) är påslaget på alla 54 tabeller. Kontrollerat i databasen i drift."
     ],
     "rattigheter": [
-     "atgard",
-     "Databasen har kvar rättigheter som inte behövs. Radskyddet stoppar åtkomsten i dag, men rättigheterna ska tas bort så att skyddet är dubbelt."
+     "ok",
+     "Utloggade besökare har ingen skrivrätt på någon tabell, och ingen tabell kan tömmas av appens användare. Onödiga rättigheter togs bort 2026-11-10 efter oberoende granskning."
     ],
     "hemligheter": [
      "ok",
@@ -416,7 +416,7 @@
    },
    "granskning": [
     "2026-11-10",
-    "Automatisk grundkontroll: radskydd, rättigheter i databasen och nycklar i koden. En full säkerhetsgranskning av en granskare är ej gjord i det här formatet."
+    "Oberoende granskning av rättighetsstädningen: godkänd, och kontrollerad i databasen i drift. Dessutom automatisk grundkontroll av radskydd och nycklar i koden."
    ],
    "kod": "47 databasändringar (migrationer) i repot",
    "version": "2026-11-10"
@@ -437,7 +437,7 @@
     ],
     "rattigheter": [
      "atgard",
-     "Databasen har kvar rättigheter som inte behövs. Radskyddet stoppar åtkomsten i dag, men rättigheterna ska tas bort så att skyddet är dubbelt."
+     "Rätten att tömma tabeller är borttagen sedan 2026-11-10, efter oberoende granskning. Kvar att granska: de regler som släpper in utloggade besökare på några tabeller."
     ],
     "hemligheter": [
      "ok",
@@ -466,7 +466,7 @@
    },
    "granskning": [
     "2026-11-10",
-    "Automatisk grundkontroll: radskydd, rättigheter i databasen och nycklar i koden. En full säkerhetsgranskning av en granskare är ej gjord i det här formatet."
+    "Oberoende granskning av rättighetsstädningen: godkänd, och kontrollerad i databasen i drift. Dessutom automatisk grundkontroll av radskydd och nycklar i koden."
    ],
    "kod": "27 databasändringar (migrationer) i repot",
    "version": "2026-11-10"
@@ -486,8 +486,8 @@
      "Radskydd (RLS) är påslaget på alla 26 tabeller. Kontrollerat i databasen i drift."
     ],
     "rattigheter": [
-     "atgard",
-     "Databasen har kvar rättigheter som inte behövs. Radskyddet stoppar åtkomsten i dag, men rättigheterna ska tas bort så att skyddet är dubbelt."
+     "ok",
+     "Utloggade besökare har ingen skrivrätt på någon tabell, och ingen tabell kan tömmas av appens användare. Onödiga rättigheter togs bort 2026-11-10 efter oberoende granskning."
     ],
     "hemligheter": [
      "ok",
@@ -516,7 +516,7 @@
    },
    "granskning": [
     "2026-11-10",
-    "Automatisk grundkontroll: radskydd, rättigheter i databasen och nycklar i koden. En full säkerhetsgranskning av en granskare är ej gjord i det här formatet."
+    "Oberoende granskning av rättighetsstädningen: godkänd, och kontrollerad i databasen i drift. Dessutom automatisk grundkontroll av radskydd och nycklar i koden."
    ],
    "kod": "31 databasändringar (migrationer) i repot",
    "version": "2026-11-10"
@@ -536,8 +536,8 @@
      "Radskydd (RLS) är påslaget på alla 36 tabeller. Kontrollerat i databasen i drift."
     ],
     "rattigheter": [
-     "atgard",
-     "Databasen har kvar rättigheter som inte behövs. Radskyddet stoppar åtkomsten i dag, men rättigheterna ska tas bort så att skyddet är dubbelt."
+     "ok",
+     "Utloggade besökare har ingen skrivrätt på någon tabell, och ingen tabell kan tömmas av appens användare. Onödiga rättigheter togs bort 2026-11-10 efter oberoende granskning."
     ],
     "hemligheter": [
      "ok",
@@ -566,7 +566,7 @@
    },
    "granskning": [
     "2026-11-10",
-    "Automatisk grundkontroll: radskydd, rättigheter i databasen och nycklar i koden. En full säkerhetsgranskning av en granskare är ej gjord i det här formatet."
+    "Oberoende granskning av rättighetsstädningen: godkänd, och kontrollerad i databasen i drift. Dessutom automatisk grundkontroll av radskydd och nycklar i koden."
    ],
    "kod": "71 databasändringar (migrationer) i repot",
    "version": "2026-11-04"
