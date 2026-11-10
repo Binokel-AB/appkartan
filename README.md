@@ -24,3 +24,14 @@ Gemensamma delar står under `gemensamt`. `har` är apparna som använder delen,
 node scripts/kontrollera.mjs
 python3 -m http.server 8000   # öppna http://localhost:8000
 ```
+
+## Spridning av regler till alla appar
+
+`CLAUDE.md` och `.claude/agents/` i detta repo är källan för alla Binokels appar. När de ändras på `main` öppnar Actionen **Sprid regler** (`.github/workflows/sprid-regler.yml`, `scripts/sprid-regler.mjs`) en PR per app-repo på grenen `claude/sprid-regler`. Den mergar aldrig något; en människa godkänner varje PR.
+
+- Ett repos egen `CLAUDE.md` skrivs inte över. Reglerna hamnar i `.claude/binokel-regler.md` och importeras med en rad.
+- Repon i listan hämtas ur `repo`-fälten i `data/appar.json`.
+- **Engångsinställning:** skapa en åtkomsttoken (fine-grained, bara de repon som ska få regler) med *Contents: Read and write* och *Pull requests: Read and write*, ge den *inte* Administration, och spara den som hemligheten `SPRID_TOKEN` i detta repo (Settings → Secrets and variables → Actions). Utan den stannar körningen med ett tydligt fel.
+- Prova först: Actions → Sprid regler → Run workflow (torrkörning är förvald och ändrar ingenting).
+- Är det första regel-PR:et (`claude/lagg-till-regler`) fortfarande öppet i ett repo hoppas det repot över.
+
