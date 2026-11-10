@@ -18,7 +18,9 @@
         <article class="role r-${esc(r.id)}">
           <header><h2>${esc(r.namn)}</h2><span class="who">${esc(r.person)}</span></header>
           <p>${esc(r.kort)}</p>
+          <h3>Får godkänna</h3>
           <ul>${r.godkanner.map((g) => `<li>${esc(g)}</li>`).join("")}</ul>
+          ${r.gor ? `<h3>Så gör du</h3><ol>${r.gor.map((g) => `<li>${esc(g)}</li>`).join("")}</ol>` : ""}
         </article>`).join("")}</div>
     </section>
     <section class="sec">
