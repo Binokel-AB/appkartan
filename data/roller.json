@@ -65,7 +65,7 @@
   ],
   [
    "Agenten lämnar ett förslag",
-   "En PR i GitHub med raden Godkänns av: COO eller Godkänns av: Ägare."
+   "En PR i GitHub med raden Godkänns av: Granskare (det är COO) eller Godkänns av: Ägare."
   ],
   [
    "En oberoende agent granskar",
