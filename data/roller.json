@@ -6,13 +6,12 @@
    "id": "agare",
    "namn": "Ägare",
    "person": "Daniel",
-   "kort": "Bestämmer riktningen och allt som är känsligt.",
+   "kort": "Ansvarar för kod och teknik, och för det som skyddar apparna.",
    "godkanner": [
-    "Behörigheter, radskydd (RLS), roller och hemligheter",
-    "Patient- och kunddata, och allt som raderar något",
-    "Pengar: betalningar, Fortnox, priser och avtal",
-    "Utskick till personal, kunder eller leverantörer",
-    "Nya appar, nedläggningar och större ombyggnader",
+    "Kod och teknik: hur apparna är byggda och större ombyggnader",
+    "Behörigheter, radskydd (RLS) och roller",
+    "Nycklar och hemligheter",
+    "Nya appar och nedläggningar",
     "CRM-nattmotorn i Kunduppföljning"
    ],
    "github": ""
@@ -21,20 +20,24 @@
    "id": "granskare",
    "namn": "COO",
    "person": "Christian",
-   "kort": "Driver det dagliga: godkänner vardagsrättningarna så att arbetet aldrig står still.",
+   "kort": "Driver verksamheten i apparna: tar alla verksamhetsfrågor och godkänner vardagsrättningarna, så att arbetet aldrig står still.",
    "godkanner": [
-    "Rättningar av personalens feedback: buggar, texter och utseende",
-    "Tester och robusthet som inte ändrar hur appen fungerar",
+    "Allt som rör verksamheten: rutiner, arbetssätt och hur apparna ska fungera för personalen",
+    "Pengar: betalningar, Fortnox, priser och avtal",
+    "Leverantörer",
+    "Personalens feedback som gäller verksamheten, inte koden",
+    "Rättningar av buggar, texter och utseende",
     "Publicering av det som redan är granskat och grönt",
     "Innehåll i Academy och på Hemsidan"
    ],
    "github": "",
    "gor": [
-    "Öppnar listan Att godkänna i dag varje morgon (ett issue i GitHub, en rad och en länk per sak)",
+    "Öppnar listan Att godkänna i dag (ett issue i GitHub, en rad och en länk per sak). GitHub mejlar när något väntar",
     "Läser vad som ändras och varför, och provar vid behov",
     "Trycker Godkänn: ändringen läggs in och publiceras av sig själv",
-    "Skriver en kommentar om något är fel: agenten rättar och lägger tillbaka saken på listan",
-    "Skickar vidare till Ägaren om saken är märkt Godkänns av: Ägare eller känns för stor"
+    "Skriver en kommentar om något ska ändras: agenten bygger efter kommentaren och lägger tillbaka saken på listan med en ny uppdatering",
+    "Svarar på verksamhetsfrågorna i listan med ja, nej eller en kommentar",
+    "Skickar vidare till Ägaren om saken gäller kod och teknik, behörigheter eller nycklar"
    ]
   },
   {
@@ -85,5 +88,32 @@
   "Ge den nya personen åtkomst till GitHub-organisationen Binokel-AB och ta bort den gamla.",
   "Lösenord och nycklar byts i Nyckelvalvet, aldrig här.",
   "Reglerna för agenterna står i CLAUDE.md i varje repo och ändras inte av att en person byts."
+ ],
+ "obestamt": {
+  "rubrik": "Inte bestämt än",
+  "text": "Tills det är bestämt godkänner Ägaren de här, som förut.",
+  "punkter": [
+   "Patient- och kunddata",
+   "Allt som raderar något",
+   "Utskick till kunder eller personal"
+  ]
+ },
+ "regler": [
+  [
+   "Bara kontrollerade fakta till COO",
+   "Listan, mejl och sammanfattningar till COO får bara innehålla sådant som agenten har kontrollerat och som stämmer med hur det faktiskt är i appen. Det som inte är kontrollerat skrivs som ej kontrollerat, med orsak."
+  ],
+  [
+   "Verksamhetsfeedback går till COO",
+   "Feedback från personalen som gäller verksamheten hamnar på COO:s lista som en fråga. Feedback som gäller ett fel i appen rättas av agenten och hamnar där som en rättning att godkänna."
+  ],
+  [
+   "Inget görs två gånger",
+   "Det som Ägaren redan har rättat eller bestämt under dagen stryks från COO:s lista. Agenten läser läget i GitHub innan listan skrivs och innan något byggs."
+  ],
+  [
+   "Svar leder vidare av sig själv",
+   "Godkänt läggs in och publiceras. En kommentar byggs om och kommer tillbaka på listan. Ingen behöver påminna."
+  ]
  ]
 }

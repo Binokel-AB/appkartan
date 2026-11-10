@@ -23,6 +23,8 @@
           ${r.gor ? `<h3>Så gör du</h3><ol>${r.gor.map((g) => `<li>${esc(g)}</li>`).join("")}</ol>` : ""}
         </article>`).join("")}</div>
     </section>
+    ${R.obestamt ? `<section class="sec"><div class="card undecided"><h2>${esc(R.obestamt.rubrik)}</h2><p>${esc(R.obestamt.text)}</p><ul>${R.obestamt.punkter.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div></section>` : ""}
+    ${R.regler ? `<section class="sec"><h2>Regler för flödet</h2><div class="rules-grid">${R.regler.map((x) => `<div class="card"><b>${esc(x[0])}</b><p>${esc(x[1])}</p></div>`).join("")}</div></section>` : ""}
     <section class="sec">
       <h2>Så går en ändring till</h2>
       <ol class="flow">${R.flode.map((f) => `<li><b>${esc(f[0])}</b><span>${esc(f[1])}</span></li>`).join("")}</ol>
