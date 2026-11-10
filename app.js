@@ -34,7 +34,7 @@
     synpunkten: [0, 550], kunduppfoljning: [1, 550],
     personal: [1, 720], fortnox: [2, 720],
     academy: [0, 840], bestallning: [1, 840], insikt: [2, 840],
-    blueprint: [0, 1010], motorer: [1, 1010], nyckelvalvet: [2, 1010],
+    blueprint: [0, 1010], nyckelvalvet: [2, 1010],
   };
   const box = (id) => { const [c, y] = P[id]; return { x: X[c], y, cx: X[c] + BW / 2, cy: y + BH / 2 }; };
   const EDGES = [
@@ -55,7 +55,7 @@
     return `M${A.cx} ${A.y + BH} V${midY} H${B.cx} V${B.y - 4}`;
   }
   const NS = "http://www.w3.org/2000/svg";
-  const H = 1110;
+  const H = 1160;
   const map = $("map");
   map.setAttribute("viewBox", `0 0 ${W} ${H}`);
   let svg = `<defs>
@@ -63,7 +63,7 @@
     <marker id="arw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="ahw"/></marker>
   </defs>`;
   const band = (y, h, label) => `<rect x="2" y="${y}" width="${W - 4}" height="${h}" rx="18" class="band"/><text x="16" y="${y + 24}" class="band-t">${label}</text>`;
-  svg += band(30, 610, "KUNDENS RESA") + band(680, 250, "PERSONAL OCH LEDNING") + band(970, 130, "BAKOM KULISSERNA");
+  svg += band(30, 610, "KUNDENS RESA") + band(680, 250, "PERSONAL OCH LEDNING") + band(970, 180, "BAKOM KULISSERNA");
   for (const [a, b, kind] of EDGES) svg += `<path d="${edgePath(a, b)}" class="e e-${kind}" marker-end="url(#${kind === "who" ? "arw" : "ar"})"/>`;
   svg += `<text x="${X[1] + BW / 2 + 6}" y="812" class="elabel">vem är du?</text>`;
   svg += `<text x="${X[2] + BW / 2}" y="926" class="ns" text-anchor="middle">+ siffror från alla appar</text>`;
@@ -77,13 +77,16 @@
     return `<g class="node" tabindex="0" role="button" data-id="${id}" aria-label="${esc(a.namn)}"><rect x="${x}" y="${y}" width="${BW}" height="${BH}" rx="16"/><image href="${ic(a.ikon)}" x="${x + BW / 2 - 18}" y="${y + 8}" width="36" height="36"/><text x="${x + BW / 2}" y="${y + 62}" text-anchor="middle" class="nt">${esc(short(a))}</text></g>`;
   };
   svg += Object.keys(P).map(node).join("");
+  // Motorerna är inga appar utan AI-agenter som kör av sig själva: en rad, ingen ruta.
+  if (byId.motorer) svg += `<g class="node row" tabindex="0" role="button" data-id="motorer" aria-label="Motorerna"><rect x="10" y="1098" width="340" height="40" rx="12"/><image href="${ic(byId.motorer.ikon)}" x="20" y="1104" width="28" height="28"/><text x="58" y="1123" class="nt">Motorerna</text><text x="128" y="1123" class="ns">AI som kör av sig själv på natten</text></g>`;
   map.innerHTML = svg;
   map.addEventListener("click", (e) => { const g = e.target.closest(".node[data-id]"); if (g) openApp(g.dataset.id); });
   map.addEventListener("keydown", (e) => { if ((e.key === "Enter" || e.key === " ") && e.target.dataset?.id) { e.preventDefault(); openApp(e.target.dataset.id); } });
 
   // ---------- Varför ----------
-  $("why").innerHTML = APPS.map((a) =>
+  $("why").innerHTML = APPS.filter((a) => a.id !== "motorer").map((a) =>
     `<button type="button" class="why" data-id="${esc(a.id)}"><img src="${ic(a.ikon)}" alt=""><span><b>${esc(a.namn)}</b>${esc(a.varfor_kort)}</span></button>`).join("");
+  if (byId.motorer) $("why").insertAdjacentHTML("afterend", `<p class="small motor-note"><b>Motorerna</b> är inga appar utan AI-agenter som kör av sig själva: Nattmotorn kontrollerar drift, säkerhet och kod, Kunskapsmotorn bygger kunskapsbanken, Timagenten sorterar inkorgen och Agent Core håller ordning på vem som gör vad.</p>`);
   $("why").addEventListener("click", (e) => { const t = e.target.closest("[data-id]"); if (t) openApp(t.dataset.id); });
 
   // ---------- Hjälp-knappen: vilka appar ----------
@@ -94,7 +97,7 @@
   }
 
   // ---------- Stilen ----------
-  $("iconwall").innerHTML = APPS.map((a) => `<div><img src="${ic(a.ikon)}" alt=""><span>${esc(short(a))}</span></div>`).join("");
+  $("iconwall").innerHTML = APPS.filter((a) => a.id !== "motorer").map((a) => `<div><img src="${ic(a.ikon)}" alt=""><span>${esc(short(a))}</span></div>`).join("");
 
   // ---------- Detaljbladet ----------
   const sheet = $("sheet"), panel = $("panel");
