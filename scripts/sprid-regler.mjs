@@ -143,7 +143,9 @@ function main() {
         "-f", "title=Uppdatera Binokels gemensamma regler och agenter", "-f", `body=${kropp}`, "--jq", ".html_url"], { env: ghEnv });
       rapport.push(`${repo}: ny PR ${url}`);
     } catch (e) {
-      rapport.push(`${repo}: FEL ${String(e.stderr || e.message).split("\n")[0]}`);
+      // Aldrig e.message: den innehåller hela kommandoraden, inklusive token-huvudet.
+      const fel = String(e.stderr || "").split("\n").find((r) => r.trim()) || `kommandot misslyckades (status ${e.status ?? "okänd"})`;
+      rapport.push(`${repo}: FEL ${fel}`);
       process.exitCode = 1;
     }
   }
