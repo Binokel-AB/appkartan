@@ -35,8 +35,26 @@ for (const r of D.resan ?? []) ikon(r[0], "Resan");
 for (const r of D.ikonbyten ?? []) { ikon(r[0], "Ikonbyte"); ikon(r[1], "Ikonbyte"); }
 for (const r of D.glasflow_forslag ?? []) ikon(r[0], "GlasFlow-förslag");
 
+// Byggd och skyddad: data/sakerhet.json ska ha alla appar, kända lägen och aldrig peka ut enskilda luckor.
+const LAGE = ["ok", "atgard", "risk", "ej"];
+let Sk = null;
+try { Sk = JSON.parse(readFileSync("data/sakerhet.json", "utf8")); } catch (e) { fel.push("data/sakerhet.json är inte giltig JSON: " + e.message); }
+if (Sk) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(Sk.kontrollerad ?? "")) fel.push("sakerhet.json: kontrollerad ska vara ett datum (ÅÅÅÅ-MM-DD)");
+  for (const id of ids) if (!Sk.appar?.[id]) fel.push(`sakerhet.json: appen ${id} saknas`);
+  for (const [id, s] of Object.entries(Sk.appar ?? {})) {
+    if (!ids.has(id)) fel.push(`sakerhet.json: okänd app ${id}`);
+    if (!Array.isArray(s.teknik) || !Array.isArray(s.granskning)) fel.push(`sakerhet.json ${id}: teknik och granskning ska vara listor`);
+    for (const k of Sk.ordning ?? []) {
+      const p = s.punkter?.[k];
+      if (!Sk.rubriker?.[k]) fel.push(`sakerhet.json: rubrik saknas för ${k}`);
+      if (!Array.isArray(p) || !LAGE.includes(p[0]) || !p[1]) fel.push(`sakerhet.json ${id}: punkten ${k} ska vara [läge, text]`);
+    }
+  }
+}
+
 // Sidan kan vara publik: inga personuppgifter, hemligheter eller databas-id:n.
-const text = readFileSync("data/appar.json", "utf8");
+const text = readFileSync("data/appar.json", "utf8") + (Sk ? JSON.stringify(Sk) : "");
 const SPARR = [
   [/\b\d{6}[-+]?\d{4}\b/, "något som liknar ett personnummer"],
   [/\b07\d[\s-]?\d{3}[\s-]?\d{2}[\s-]?\d{2}\b/, "något som liknar ett mobilnummer"],
