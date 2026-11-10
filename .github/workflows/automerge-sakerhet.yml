@@ -1,0 +1,57 @@
+name: Automerge av säkerhetsläget
+
+# Beslut Daniel 2026-11-10: en PR som BARA ändrar data/sakerhet.json och har grön kontroll
+# mergas automatiskt, så att app-sidorna "Byggd och skyddad" hålls aktuella av de schemalagda
+# kontrollerna. Allt annat (kod, andra datafiler, workflows) kräver Daniels ja som vanligt.
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths: ["data/sakerhet.json"]
+
+permissions:
+  contents: write
+  pull-requests: write
+  actions: write
+
+concurrency:
+  group: automerge-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  automerge:
+    # Aldrig från en fork: grenen måste ligga i det här repot.
+    if: github.event.pull_request.head.repo.full_name == github.repository && github.event.pull_request.base.ref == 'main'
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      PR: ${{ github.event.pull_request.number }}
+      SHA: ${{ github.event.pull_request.head.sha }}
+    steps:
+      - name: Bara data/sakerhet.json får vara ändrad
+        id: filer
+        run: |
+          filer=$(gh api "repos/$GITHUB_REPOSITORY/pulls/$PR/files" --paginate --jq '.[].filename')
+          echo "$filer"
+          if [ "$filer" = "data/sakerhet.json" ]; then echo "ok=ja" >> "$GITHUB_OUTPUT"; else echo "PR:en ändrar mer än data/sakerhet.json – ingen automerge."; fi
+      # Kontrollen körs på PR:ens data men med skriptet från main, så att en PR inte kan ändra sin egen kontroll.
+      - uses: actions/checkout@v4
+        if: steps.filer.outputs.ok == 'ja'
+        with:
+          ref: main
+      - name: Hämta PR:ens sakerhet.json
+        if: steps.filer.outputs.ok == 'ja'
+        run: gh api "repos/$GITHUB_REPOSITORY/contents/data/sakerhet.json?ref=$SHA" -H "Accept: application/vnd.github.raw" > data/sakerhet.json
+      - uses: actions/setup-node@v4
+        if: steps.filer.outputs.ok == 'ja'
+        with:
+          node-version: 20
+      - name: Kontrollera
+        if: steps.filer.outputs.ok == 'ja'
+        run: node scripts/kontrollera.mjs
+      - name: Merga och publicera
+        if: steps.filer.outputs.ok == 'ja'
+        run: |
+          gh api -X PUT "repos/$GITHUB_REPOSITORY/pulls/$PR/merge" -f merge_method=squash -f sha="$SHA"
+          # En merge med Actions egen token startar inte publiceringen av sig själv.
+          gh workflow run pages.yml --repo "$GITHUB_REPOSITORY" --ref main
