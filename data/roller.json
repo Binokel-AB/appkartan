@@ -1,43 +1,45 @@
 {
- "uppdaterad": "2026-11-10",
- "ingress": "Apparna sköts av AI-agenter som bara lämnar förslag. En människa godkänner varje ändring. Här står vem som får godkänna vad. Rollerna är skrivna så att vem som helst som får rollen kan driva arbetet.",
+ "uppdaterad": "2026-11-11",
+ "ingress": "Apparna sköts av AI-agenter som bara lämnar förslag. En människa godkänner varje ändring. Samma frågor går till både Ägaren och COO, och den som svarar först driver saken framåt. Rollerna är skrivna så att vem som helst som får rollen kan driva arbetet.",
  "roller": [
   {
    "id": "agare",
    "namn": "Ägare",
    "person": "Daniel",
-   "kort": "Ansvarar för kod och teknik, och för det som skyddar apparna.",
+   "kort": "Ansvarar för kod och teknik. Får samma frågor som COO och kan svara på allt, men några saker får bara Ägaren godkänna.",
    "godkanner": [
-    "Kod och teknik: hur apparna är byggda och större ombyggnader",
-    "Behörigheter, radskydd (RLS) och roller",
-    "Nycklar och hemligheter",
-    "Nya appar och nedläggningar",
-    "CRM-nattmotorn i Kunduppföljning"
+    "Bara Ägaren: behörigheter, radskydd (RLS) och roller",
+    "Bara Ägaren: nycklar och hemligheter",
+    "Bara Ägaren: CRM-nattmotorn i Kunduppföljning, som är fryst",
+    "Allt annat: samma frågor som COO, den som svarar först gäller"
    ],
-   "github": ""
+   "gor": [
+    "Får frågorna en i taget i chatten",
+    "Svarar ja, nej eller med en kommentar",
+    "Rättar gärna själv under dagen: det som redan är gjort stryks från listan",
+    "Får ett kort mejl om vilka saker som gick COO:s väg när svaren skilde sig"
+   ]
   },
   {
    "id": "granskare",
    "namn": "COO",
    "person": "Christian",
-   "kort": "Driver verksamheten i apparna: tar alla verksamhetsfrågor och godkänner vardagsrättningarna, så att arbetet aldrig står still.",
+   "kort": "Driver verksamheten i apparna. Får samma frågor som Ägaren i ett mejl varje dag och svarar i mejlet. Behöver inget GitHub-konto.",
    "godkanner": [
     "Allt som rör verksamheten: rutiner, arbetssätt och hur apparna ska fungera för personalen",
     "Pengar: betalningar, Fortnox, priser och avtal",
     "Leverantörer",
-    "Personalens feedback som gäller verksamheten, inte koden",
-    "Rättningar av buggar, texter och utseende",
-    "Publicering av det som redan är granskat och grönt",
-    "Innehåll i Academy och på Hemsidan"
+    "Personalens feedback som gäller verksamheten",
+    "Rättningar av buggar, texter och utseende, och publicering av det som är granskat och grönt",
+    "Innehåll i Academy och på Hemsidan",
+    "Inte: behörigheter, roller och nycklar. De kräver Ägarens ja"
    ],
-   "github": "",
    "gor": [
-    "Öppnar listan Att godkänna i dag (ett issue i GitHub, en rad och en länk per sak). GitHub mejlar när något väntar",
-    "Läser vad som ändras och varför, och provar vid behov",
-    "Trycker Godkänn: ändringen läggs in och publiceras av sig själv",
-    "Skriver en kommentar om något ska ändras: agenten bygger efter kommentaren och lägger tillbaka saken på listan med en ny uppdatering",
-    "Svarar på verksamhetsfrågorna i listan med ja, nej eller en kommentar",
-    "Skickar vidare till Ägaren om saken gäller kod och teknik, behörigheter eller nycklar"
+    "Får ett mejl varje dag: Att godkänna i dag, med en numrerad rad per sak",
+    "Svarar i mejlet, gärna med hjälp av Claude: ok på en rad, eller en kommentar om något ska ändras",
+    "Ett ok räknas som godkännande: agenten lägger in ändringen och publicerar den",
+    "En kommentar byggs om av agenten och kommer tillbaka i nästa mejl",
+    "Det som Ägaren redan har svarat på eller rättat finns inte kvar i nästa mejl"
    ]
   },
   {
@@ -68,15 +70,15 @@
   ],
   [
    "Agenten lämnar ett förslag",
-   "En PR i GitHub med raden Godkänns av: Granskare (det är COO) eller Godkänns av: Ägare."
+   "En PR i GitHub som säger vem som får godkänna den."
   ],
   [
    "En oberoende agent granskar",
    "En annan agent, som inte skrev ändringen, läser och testar den. Först därefter hamnar den på listan."
   ],
   [
-   "Rätt människa svarar",
-   "Godkänn = ändringen läggs in och publiceras. Kommentar = agenten rättar och lägger tillbaka den på listan."
+   "Ägaren eller COO svarar",
+   "Ok = ändringen läggs in och publiceras. Kommentar = agenten bygger om och frågar igen. Den som svarar först gäller."
   ],
   [
    "Ändringen provas i den publicerade appen",
@@ -84,8 +86,9 @@
   ]
  ],
  "ta_over": [
-  "Byt namnet och GitHub-kontot på rollen i filen data/roller.json. Det är två rader.",
-  "Ge den nya personen åtkomst till GitHub-organisationen Binokel-AB och ta bort den gamla.",
+  "Byt namnet på rollen i filen data/roller.json. Det är en rad.",
+  "COO behöver bara en mejladress som det dagliga mejlet går till. Adressen står i rutinens inställning, inte på den här sidan.",
+  "Ägaren behöver åtkomst till GitHub-organisationen Binokel-AB. Ge den nya personen åtkomst och ta bort den gamla.",
   "Lösenord och nycklar byts i Nyckelvalvet, aldrig här.",
   "Reglerna för agenterna står i CLAUDE.md i varje repo och ändras inte av att en person byts."
  ],
@@ -100,20 +103,28 @@
  },
  "regler": [
   [
+   "Samma frågor till båda",
+   "Varje fråga går både till Ägaren, i chatten, och till COO, i det dagliga mejlet. Den som svarar först driver saken framåt."
+  ],
+  [
+   "Olika svar: COO:s gäller",
+   "Svarar de olika gäller COO:s svar. Ägaren får ett kort mejl om vilka saker som gick COO:s väg. Undantag: behörigheter, roller och nycklar kräver alltid Ägarens ja."
+  ],
+  [
    "Bara kontrollerade fakta till COO",
-   "Listan, mejl och sammanfattningar till COO får bara innehålla sådant som agenten har kontrollerat och som stämmer med hur det faktiskt är i appen. Det som inte är kontrollerat skrivs som ej kontrollerat, med orsak."
+   "Mejl, listor och sammanfattningar till COO får bara innehålla sådant som agenten har kontrollerat och som stämmer med hur det faktiskt är i appen. Det som inte är kontrollerat skrivs som ej kontrollerat, med orsak."
   ],
   [
    "Verksamhetsfeedback går till COO",
-   "Feedback från personalen som gäller verksamheten hamnar på COO:s lista som en fråga. Feedback som gäller ett fel i appen rättas av agenten och hamnar där som en rättning att godkänna."
+   "Feedback från personalen som gäller verksamheten blir en fråga i mejlet. Feedback som gäller ett fel i appen rättas av agenten och kommer dit som en rättning att godkänna."
   ],
   [
    "Inget görs två gånger",
-   "Det som Ägaren redan har rättat eller bestämt under dagen stryks från COO:s lista. Agenten läser läget i GitHub innan listan skrivs och innan något byggs."
+   "Det som redan är rättat eller besvarat stryks från listan. Agenten läser läget i GitHub och tidigare svar innan listan skrivs och innan något byggs."
   ],
   [
    "Svar leder vidare av sig själv",
-   "Godkänt läggs in och publiceras. En kommentar byggs om och kommer tillbaka på listan. Ingen behöver påminna."
+   "Godkänt läggs in och publiceras. En kommentar byggs om och kommer tillbaka. Ingen behöver påminna."
   ]
  ]
 }
