@@ -306,13 +306,9 @@
   "nivaer": {
    "registrerad": "Appen finns med och har en ansvarig agent.",
    "ansluten": "Agenten läste appens läge det datum som står.",
-   "automatiserad": "Agenten har ett verifierat flöde för utveckling, test och tillåten publicering."
+   "automatiserad": "Agenten har ett verifierat flöde för utveckling, test och tillåten publicering. Ingen app är där än."
   },
   "utanfor_kartan": [
-   {
-    "namn": "Bågpris (Frame Finder)",
-    "lage": "I drift enligt Blueprint, publicerad, repo uppdaterat 2026-11-11. Saknar ansvarig agent och finns inte i Appkartan."
-   },
    {
     "namn": "Shop Flow (Dagens uppgifter)",
     "lage": "I drift enligt Blueprint. Senast ändrad 2026-09-07. Oklart om den används."
@@ -328,6 +324,13 @@
    {
     "namn": "Eyewear Navigator",
     "lage": "Avvecklas. Repot är raderat."
+   }
+  ],
+  "extra": [
+   {
+    "namn": "Bågpris (Frame Finder)",
+    "niva": "registrerad",
+    "not": "I drift enligt Blueprint. Har ansvarig agent i förteckningen sedan 2026-11-11. Databas och feedbackkälla är inte kontrollerade, och appen saknas på Kartan."
    }
   ]
  }
