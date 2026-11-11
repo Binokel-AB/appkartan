@@ -19,6 +19,13 @@ Den här filen läses av Claude Code i varje Binokel-repo. Lägg samma fil i all
    Ett ja gäller bara det Daniel just godkände, inte liknande saker senare.
 5. **Skriv aldrig hemligheter i kod eller PR.** Inga lösenord, nycklar, tokens, personnummer, kund- eller patientuppgifter. Hemligheter ligger i Nyckelvalvet.
 6. **Rapportera ärligt.** Misslyckas ett test, säg det och visa felet. Säg inte "klart" om något inte är verifierat.
+7. **Inget "klart" förrän det är provat i produktion.** Ingen får höra att något är rättat (inte Christian, inte personalen, inte Daniel, och ingen feedback sätts till Redo att testa) förrän:
+   - ändringen är mergad **och publicerad**. En merge till `main` syns i Lovable men är **inte** ute i den publicerade appen.
+   - den publicerade appen kör din version. Jämför `x-deployment-id` eller versionen med din publicering.
+   - du själv har provat just det flöde som var trasigt, i den publicerade appen, med ett eget testkonto. Använd aldrig Daniels, Christians eller personalens konton, och använd testdata eller en testlektion, aldrig riktiga kunder.
+
+   Går något av det inte att göra, säg exakt hur långt det har kommit (mergat, publicerat, ej provat) och vad som saknas.
+8. **Behörigheter och roller via PR och Daniels ja.** Nya konton, roller, admin-rättigheter, pilotrader, RLS och hemligheter ändras bara som en PR (eller ett granskat SQL-skript i en PR). Fråga Daniel innan den mergas eller körs mot produktionen.
 
 ## Beslut: så ber du om ett
 
