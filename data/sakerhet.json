@@ -84,11 +84,11 @@
    "punkter": {
     "rls": [
      "ok",
-     "Radskydd (RLS) är påslaget på alla 55 tabeller. Kontrollerat i databasen i drift."
+     "Radskydd (RLS) är påslaget på alla 56 tabeller. Kontrollerat i databasen i drift 2026-11-11."
     ],
     "rattigheter": [
      "atgard",
-     "Databasen har kvar rättigheter som inte behövs. Radskyddet stoppar åtkomsten i dag, men rättigheterna ska tas bort så att skyddet är dubbelt."
+     "Rätten att tömma tabeller är borttagen sedan 2026-11-11, efter oberoende granskning. Nattmotorn rördes inte. Kvar att granska: de regler som släpper in utloggade besökare på några tabeller."
     ],
     "hemligheter": [
      "ok",
@@ -116,11 +116,11 @@
     ]
    },
    "granskning": [
-    "2026-11-10",
+    "2026-11-11",
     "Automatisk grundkontroll: radskydd, rättigheter i databasen och nycklar i koden. En full säkerhetsgranskning av en granskare är ej gjord i det här formatet."
    ],
    "kod": "112 databasändringar (migrationer) i repot",
-   "version": "2026-11-10",
+   "version": "2026-11-11",
    "notis": "Nattmotorn är frusen och rörs inte av några kontroller eller rättningar."
   },
   "saljstod": {
