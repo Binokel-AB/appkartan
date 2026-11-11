@@ -6,7 +6,7 @@
   const main = document.getElementById("lMain");
   const STEG = { inkommet: "Inkommet", klassificerat: "Klassificerat", tilldelat: "Tilldelat", pagar: "Pågår", testas: "Testas", granskas: "Granskas",
     publiceras: "Väntar på publicering", redo_att_testa: "Redo att testa", vantar_beslut: "Väntar på beslut", blockerat: "Blockerat", misslyckat: "Misslyckat", aterupptas: "Återupptas" };
-  const KORNING = { ko: ["Väntar på start", "warn"], startad: ["Igång", "ok"], klar: ["Klar", "ok"], hanterad: ["Klar", "ok"], misslyckad: ["Gick inte att starta", "bad"], tidsgrans: ["Svarade inte", "bad"] };
+  const KORNING = { ko: ["Väntar på start", "warn"], startar: ["Startas", "warn"], avbruten: ["Avbruten", "ej"], startad: ["Igång", "ok"], klar: ["Klar", "ok"], hanterad: ["Klar", "ok"], misslyckad: ["Gick inte att starta", "bad"], tidsgrans: ["Svarade inte", "bad"] };
   const NIVA = { registrerad: "Registrerad", ansluten: "Ansluten", automatiserad: "Automatiserad", ej_registrerad: "Ej registrerad" };
   const tid = (t) => (t ? new Date(t).toLocaleString("sv-SE", { dateStyle: "short", timeStyle: "short" }) : "");
   const tag = (text, farg) => `<span class="tag g-${farg}">${esc(text)}</span>`;
@@ -52,7 +52,7 @@
     main.innerHTML = `
       <p><button class="btn" id="lOm">Hämta igen</button> <button class="btn" id="lUt">Stäng och glöm nyckeln</button></p>
       <section class="card" id="lBeslut"><h2>Väntande beslut (${d.vantande_beslut.length})</h2>
-        ${lista(d.vantande_beslut, (b) => rad(b.fraga, `${esc(b.app)} · till ${esc(b.till)} · sedan ${esc(tid(b.sedan))} · förslag: ${esc(b.rekommendation)}`, tag(b.status === "otydligt" ? "Otydligt svar" : b.mejl === "skickat" ? "Mejl skickat" : b.mejl === "utkast" ? "Mejlutkast" : "Väntar", b.status === "otydligt" ? "bad" : "warn")), "Inga beslut väntar.")}</section>
+        ${lista(d.vantande_beslut, (b) => rad(b.fraga, `${esc(b.app)} · till ${esc(b.till)} · sedan ${esc(tid(b.sedan))} · förslag: ${esc(b.rekommendation)}${b.kod ? ` · <b>din kod: ${esc(b.kod)}</b>` : ""}`, tag(b.status === "otydligt" ? "Otydligt svar" : b.mejl === "skickat" ? "Mejl skickat" : b.mejl === "utkast" ? "Mejlutkast" : "Väntar", b.status === "otydligt" ? "bad" : "warn")), "Inga beslut väntar.")}</section>
       <section class="card" id="lStopp"><h2>Misslyckanden och blockeringar (${d.stopp.length})</h2>
         ${lista(d.stopp, (s) => rad(s.rubrik, `${esc(s.app)} · ${esc(s.fel || "ingen orsak angiven")} · försök ${esc(s.forsok)} · ${esc(tid(s.senast))}`, tag(s.kraver_manniska ? "Kräver en människa" : STEG[s.steg] || s.steg, s.kraver_manniska ? "bad" : "warn")), "Inget har stannat.")}</section>
       <section class="card" id="lPagaende"><h2>Pågående arbete (${d.pagaende.length})</h2>
@@ -64,6 +64,9 @@
         ${lista(d.appar, (a) => rad(a.namn, `${esc(a.agent || "ingen agent")} · feedbacken ägs av ${esc(a.feedback_ags_av === "arbetsko" ? "arbetskön" : a.feedback_ags_av === "ingen" ? "ingen" : "en befintlig körning")}`, tag(a.status === "oklar" ? "Oklar" : NIVA[a.niva] || a.niva, a.niva === "automatiserad" ? "ok" : a.status === "oklar" ? "ej" : "warn")), "Inga appar.")}</section>
       <section class="card" id="lAnsvar"><h2>Agenternas ansvar</h2>
         ${lista(d.ansvar, (m) => rad(m.agent, `${esc(m.roll)} · ${m.app === "*" ? "alla appar" : esc(m.app)}`, ""), "Inga mandat är registrerade.")}</section>
+      <section class="card" id="lAndringar"><h2>Skyddade ändringar</h2>
+        <p class="gp">Ändringar av nycklar, mandat, regler och lägen, och bevis som lagts in utan att gå genom arbetsköns funktioner.</p>
+        ${lista(d.skyddade_andringar || [], (x) => rad(`${x.tabell} · ${x.vad}`, `${esc(x.rad)} · ${esc(tid(x.nar))}`, tag(x.via === "DIREKT" ? "Direkt i databasen" : "Via funktion", x.via === "DIREKT" ? "bad" : "ok")), "Inga ändringar.")}</section>
       <section class="card" id="lKostnad"><h2>Kostnader och krediter</h2>
         ${d.kostnader && d.kostnader.verifierad_kalla ? "" : `<p>${tag("Inte verifierat", "warn")}</p>${tom((d.kostnader && d.kostnader.not) || "Ingen källa ansluten.")}`}</section>
       <section class="card" id="lLagen"><h2>Lägen</h2>
