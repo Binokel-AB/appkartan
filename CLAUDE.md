@@ -66,6 +66,36 @@ Innan en PR markeras klar, kör `/security-review` och åtgärda det den hittar.
 
 Rapporterar de fel: rätta dem eller skriv **BESLUT BEHÖVS:** om rättningen kräver ett val.
 
+## Vilken skill när
+
+Skills ligger i `.claude/skills/<namn>/`. Binokels regler här går **alltid före** en skill. Hela listan och källorna: `verktygslada.md` i repot `appkartan`. En skill som skapar ärenden, stänger ärenden, skickar något eller rör nycklar och behörigheter kräver Daniels ja, precis som annars.
+
+| Läge | Använd |
+|---|---|
+| Rätta, bygga eller ändra kod i en Binokel-app | `binokel-utveckling` (alltid), och `binokel-feedback` för feedbackpunkter |
+| Något ska provas på mobil, iPad eller dator | `binokel-enhetstest` |
+| Säkerhetsfråga, RLS, roller, hemligheter | `binokel-sakerhet` och agenten `security-reviewer` |
+| Svår bugg eller något som plötsligt går långsamt | `diagnosing-bugs` |
+| Ny funktion eller rättning test-först | `tdd` |
+| Granska ändringar före PR | `/code-review` och `/security-review`; `pocock-code-review` bara när koden ska mätas mot ett ärende eller en spec |
+| Skriva PR-text | `pr` (Binokels PR-regler gäller) |
+| Planera större arbete | `grill-with-docs`, sedan `to-spec` och `to-tickets` (de skapar ärenden i GitHub: fråga först); mycket stort arbete: `wayfinder` |
+| Genomföra en färdig spec | `implement` eller `implement-spec` |
+| Städa upp struktur eller design av moduler | `improve-codebase-architecture`, `codebase-design` |
+| Ta reda på något mot pålitliga källor | `research` |
+| Snabb prototyp, logik eller en enda skärm | `prototype`; flera olika gränssnittsvarianter: `kowalski-prototype` |
+| Rörelse och animation i gränssnittet | `animate` (bygga), `review-animations` (granska), `find-animation-opportunities`, `improve-animations`, `remove-animations`, `animation-performance` (hackar), `choreograph` (flera saker rör sig ihop) |
+| Dra, svep, bottenpaneler | `gestures` |
+| Känns som en webbsida, inte en app, på mobilen | `mobile-native` |
+| Prova att gränssnittet håller för långa namn och konstiga data | `break-ui` |
+| Gränssnittets känsla och finish | `emil-design-eng`, `apple-design` |
+| Texter, SEO eller sidstruktur (bara `clear-vision-north` och `northern-lens-learning-quest`) | `copywriting`, `copy-editing`, `humanizer`, `seo-audit`, `site-architecture`, `emails` (utkast; skicka aldrig utan Daniels ja) |
+| Mejl, svar eller meddelanden i Daniels namn | `binokel-utskick` |
+
+Används **inte** hos oss: `wizard` (finns inte), `write-swift` och `animate-expo` (vi bygger webbappar), `setup-matt-pocock-skills` och `triage` (ändrar repots inställningar eller stänger ärenden: bara efter Daniels ja).
+
+**Nya verktyg och idéer:** Daniel skickar en länk. Claude kollar den och lägger in den i `verktygslada.md` med ett domslut (Använd, Kanske senare eller Undvik). Bara "Använd" byggs in, som en PR efter Daniels ja. Rutinen står i `verktygslada.md`.
+
 ## Binokels appar (kort)
 
 Källa: `data/appar.json` i detta repo (appkartan). Står något annorlunda där, gäller appkartan.
