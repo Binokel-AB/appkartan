@@ -154,8 +154,8 @@
      "Varje ändring går via en egen gren och en granskad PR. Direkt ändring av huvudkoden stoppas."
     ],
     "serverfunktioner": [
-     "ej",
-     "4 serverfunktioner finns. Inloggningskravet på var och en är ej kontrollerat i den här genomgången."
+     "atgard",
+     "Inloggningskravet på serverfunktionerna är kontrollerat i koden; mindre anmärkningar finns och rättas i PR."
     ],
     "backup": [
      "ej",
@@ -167,8 +167,8 @@
     ]
    },
    "granskning": [
-    "2026-11-10",
-    "Oberoende granskning av prisimporten: godkänd. Dessutom automatisk grundkontroll av radskydd, rättigheter och nycklar i koden: inga fel."
+    "2026-11-11",
+    "Veckogranskning av koden: 10 fynd (1 hög), rättas i PR."
    ],
    "kod": "131 databasändringar (migrationer) i repot",
    "version": "2026-11-10"
