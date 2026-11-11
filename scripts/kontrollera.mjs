@@ -76,6 +76,8 @@ if (Kr) {
   }
   for (const id of Object.keys(Kr.organisation?.appagenter ?? {})) if (!ids.has(id)) fel.push(`kontrollrum.json: okänd app ${id}`);
   for (const id of ids) if (!Kr.organisation?.appagenter?.[id]) fel.push(`kontrollrum.json: appagent saknas för ${id}`);
+  for (const [id, g] of Object.entries(Kr.organisation?.appagenter ?? {})) if (!["registrerad", "ansluten", "automatiserad"].includes(g.niva)) fel.push(`kontrollrum.json: ${id} saknar nivå`);
+  if (!Kr.appregister?.kalla || !/^\d{4}-\d{2}-\d{2}$/.test(Kr.appregister?.datum ?? "")) fel.push("kontrollrum.json: appregistret saknar källa eller datum");
 }
 const text = readFileSync("data/appar.json", "utf8") + (Sk ? JSON.stringify(Sk) : "") + (Ro ? JSON.stringify(Ro) : "") + (Kr ? JSON.stringify(Kr) : "");
 const SPARR = [

@@ -27,12 +27,31 @@
   const O = K.organisation;
 
   document.getElementById("kSub").textContent = "Ögonblicksbild " + K.uppdaterad;
+  // Källans ålder: äldre än max_alder_dagar visas som en varning högst upp.
+  const alder = Math.floor((Date.now() - new Date(K.uppdaterad + "T00:00:00").getTime()) / 864e5);
+  const gammal = alder > (K.max_alder_dagar ?? 2);
+  const varning = gammal ? `<div class="card err"><b>Uppgifterna är ${alder} dagar gamla.</b><p class="gp">Källan har inte uppdaterats sedan ${esc(K.uppdaterad)}. Lita inte på siffrorna förrän den är uppdaterad.</p></div>` : "";
+  const NIVA = ["registrerad", "ansluten", "automatiserad"];
+  const R = K.appregister;
+  const verks = D.appar.filter((a) => a.grupp !== "bakom");
+  const iNiva = (n) => verks.filter((a) => { const g = agent(a.id); const i = NIVA.indexOf(g ? g.niva : ""); return i >= NIVA.indexOf(n); });
+  const nivaer = `
+      <h3 class="kh">Tre nivåer för ${verks.length} verksamhetsappar</h3>
+      <div class="kgrid">${NIVA.map((n) => { const l = iNiva(n); return `
+        <div class="pt p-${l.length ? "ok" : "ej"}"><div class="pth"><h3>${n[0].toUpperCase() + n.slice(1)}</h3><span class="tag g-${l.length ? "ok" : "ej"}">${l.length} av ${verks.length}</span></div>
+          <p>${esc(R.nivaer[n])}</p><p>${l.length ? l.map((a) => esc(a.namn)).join(", ") : "Ingen app ännu."}</p></div>`; }).join("")}</div>
+      <small class="src">Källa: ${esc(R.kalla)}, ${esc(R.datum)}</small>
+      <h3 class="kh">Appar utanför kartan</h3>
+      <div class="rows">${R.utanfor_kartan.map((x) => `<div class="row rowtop"><span class="rn"><b>${esc(x.namn)}</b><small>${esc(x.lage)}</small></span></div>`).join("")}</div>
+      <div class="card"><b>Skyddad del</b> ${tag(K.skyddad.lage)}<p class="gp">${esc(K.skyddad.text)}</p></div>`;
 
   const oversikt = `
     <section id="oversikt" class="sec">
       <h2>Översikt</h2>
       <p class="lead">${esc(K.om)}</p>
+      ${varning}
       <div class="kgrid">${K.oversikt.map(ruta).join("")}</div>
+      ${nivaer}
       <h3 class="kh">Alla ${D.appar.length} appar</h3>
       <div class="rows">${D.appar.map((a) => { const st = ST[a.status] || ["", "ej"]; const s = S.appar[a.id]; const f = s ? farg(s) : null; return `
         <a class="row" href="sakerhet.html?app=${encodeURIComponent(a.id)}">
