@@ -2,7 +2,7 @@
 
 Här står vad vi har installerat, vad det är till för och var det finns, och vad vi har bestämt om nya idéer. En rad per sak. Tabellen "Vilken skill när" finns också i `CLAUDE.md`, så att Claude ser den i varje repo.
 
-Senast uppdaterad 2026-11-11. Binokels regler (`CLAUDE.md`) går alltid före alla skills och verktyg. Ingen skill får röra nycklar, behörigheter, utskick eller radering utan Daniels ja.
+Senast uppdaterad 2026-11-11 (OpenWhispr och Cap: bara på Daniels egen dator). Binokels regler (`CLAUDE.md`) går alltid före alla skills och verktyg. Ingen skill får röra nycklar, behörigheter, utskick eller radering utan Daniels ja.
 
 ## Skills
 
@@ -124,14 +124,23 @@ I `.claude/agents/` i alla repon (från `appkartan`, sprids av Actionen Sprid re
 | Lovable | Läsa projekt. Aldrig `send_message` eller `deploy_project` som drar betalda krediter |
 | Google (Drive, Gmail, Kalender, Dokument, Kalkylark, Presentationer) | Dokument, kalender och mejlutkast. Inga utskick utan Daniels ja |
 
+## Verktyg på Daniels egen dator
+
+OpenWhispr och Cap är verktyg som vi använder när vi kodar på **Daniels egen dator**, till exempel när det sparar credits. De hör bara hemma där:
+
+- De ska **inte** skickas till Christian eller personalen, och de ska inte föreslås eller installeras på butikernas eller personalens enheter.
+- De byggs inte in i någon app och ändrar ingen kod i repona.
+- Inspelningar och dikterad text får aldrig innehålla nycklar, lösenord, kund- eller patientuppgifter.
+- Ingenting är installerat än. Daniel installerar dem själv.
+
 ## Idéer från videon
 
 Domslut av Daniel (via Grok) 2026-11-11. Claude har inte själv granskat verktygen nedan; rubriken beskriver bara det Claude är säker på. Ett verktyg byggs in först efter en egen granskning enligt rutinen längst ned.
 
 | Verktyg | Domslut | Anteckning |
 |---|---|---|
-| OpenWhispr | **Använd** | Öppen programvara för att prata in text i stället för att skriva. Programmet installeras på Daniels dator. Ingenting är installerat än, och ingen kod ändras i repona |
-| Cap | **Använd** | Öppen programvara för att spela in skärmen (som Loom). Installeras på Daniels dator. Ingenting är installerat än |
+| OpenWhispr | **Använd** (på Daniels egen dator) | Öppen programvara för att prata in text i stället för att skriva. Ett hjälpmedel när Daniel kodar, till exempel när det sparar credits. Ingenting är installerat än, och ingen kod ändras i repona |
+| Cap | **Använd** (på Daniels egen dator) | Öppen programvara för att spela in skärmen (som Loom). Ett hjälpmedel när Daniel kodar, till exempel när det sparar credits. Ingenting är installerat än |
 | Chatwoot | Kanske senare | Öppen inkorg för kundkontakt. Vänta tills vi vet om vi behöver en gemensam inkorg |
 | open-seo | Kanske senare | SEO-verktyg. Vi har redan `seo-audit` |
 | morluto/rea | **Undvik** | Bryter troligen mot villkor och upphovsrätt (Daniels bedömning) |
