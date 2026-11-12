@@ -1,0 +1,337 @@
+{
+ "uppdaterad": "2026-11-11",
+ "om": "Ögonblicksbild. Varje siffra har en källa och ett datum. Det som saknar källa visas som Ej ansluten eller Inte verifierat. Sidan är publik och visar därför bara antal, aldrig frågetexter, incidenter i detalj eller personuppgifter.",
+ "oversikt": [
+  {
+   "namn": "Väntande beslut",
+   "varde": 26,
+   "lage": "verifierat",
+   "kalla": "Blueprints frågekö",
+   "datum": "2026-11-11",
+   "not": "Frågekön skiljer inte på Daniel och Christian."
+  },
+  {
+   "namn": "Öppna incidenter",
+   "varde": 3,
+   "lage": "verifierat",
+   "kalla": "Blueprints incidentregister",
+   "datum": "2026-11-11",
+   "not": "Tre till är under bevakning."
+  },
+  {
+   "namn": "Blockerade plankort",
+   "varde": 9,
+   "lage": "verifierat",
+   "kalla": "Blueprints plan",
+   "datum": "2026-11-11"
+  },
+  {
+   "namn": "Byggt men inte testat",
+   "varde": 56,
+   "lage": "verifierat",
+   "kalla": "Blueprints plan",
+   "datum": "2026-11-11"
+  },
+  {
+   "namn": "Pågående utvecklingsärenden",
+   "lage": "ej_ansluten",
+   "not": "Kommer från Agent Cores arbetskö när den är godkänd och i drift."
+  },
+  {
+   "namn": "Senast publicerat och verifierat",
+   "lage": "ej_ansluten",
+   "not": "Ingen källa samlar publiceringar från alla appar i dag."
+  }
+ ],
+ "beslut": {
+  "daniel": {
+   "lage": "inte_verifierat",
+   "not": "Frågekön har ingen mottagare per fråga. Alla 26 ligger i praktiken hos Daniel."
+  },
+  "christian": {
+   "lage": "inte_verifierat",
+   "not": "Christians frågor går i dag via mejl och syns inte i någon källa."
+  },
+  "historik": {
+   "varde": 302,
+   "lage": "verifierat",
+   "kalla": "Blueprints frågekö, besvarade",
+   "datum": "2026-11-11"
+  },
+  "efter_beslut": "När ett svar är registrerat går ärendet till Återupptas och appens agent fortsätter vid nästa körning. Testat med ett fiktivt ärende 2026-11-11, inte i drift.",
+  "detaljer": "Frågetexter, rekommendationer och svar visas inte här eftersom sidan är publik. De ska visas bakom inloggning."
+ },
+ "organisation": {
+  "huvudagent": {
+   "namn": "Huvudagenten",
+   "lage": "planerad",
+   "gor": "Sorterar idéer och feedback till rätt app, följer upp, skickar beslutsfrågor.",
+   "not": "Finns som testad arbetskö i Agent Core. Inte i drift."
+  },
+  "ingang": {
+   "namn": "Grok Bot",
+   "lage": "drift",
+   "gor": "Daniels ingång. Driver i dag Claude genom att klicka i chattar.",
+   "not": "Kopplingen till Agent Core är specificerad och testad med simulerade anrop, inte ansluten."
+  },
+  "specialister": [
+   {
+    "namn": "tester",
+    "gor": "Kör tester och provar flöden.",
+    "lage": "verifierat",
+    "kalla": "GlasFlow-repot. Övriga repon enligt logg, inte kontrollerat."
+   },
+   {
+    "namn": "security-reviewer",
+    "gor": "Granskar radskydd, nycklar och inloggning.",
+    "lage": "verifierat",
+    "kalla": "GlasFlow-repot. Övriga repon enligt logg, inte kontrollerat."
+   },
+   {
+    "namn": "Oberoende granskare",
+    "gor": "Granskar en annan agents ändring före merge.",
+    "lage": "inte_verifierat",
+    "kalla": "Nämns i reglerna, körningen är inte kontrollerad."
+   }
+  ],
+  "korningar_kalla": "Listan över schemalagda uppgifter på Daniels Claude-konto, läst 2026-11-11. Tider i svensk tid. Listan lästes inte till slut.",
+  "appagenter": {
+   "glasflow": {
+    "korningar": [
+     "Säkerhetsgranskning: måndagar 05:05"
+    ],
+    "senast": {
+     "lage": "inte_verifierat"
+    },
+    "niva": "ansluten"
+   },
+   "kunduppfoljning": {
+    "korningar": [
+     "Feedback, fel och robusthet: tis, tors, lör 00:10",
+     "Säkerhetsgranskning: torsdagar 05:05"
+    ],
+    "senast": {
+     "lage": "inte_verifierat"
+    },
+    "niva": "registrerad"
+   },
+   "saljstod": {
+    "korningar": [
+     "Säkerhetsgranskning: onsdagar 05:05"
+    ],
+    "senast": {
+     "lage": "verifierat",
+     "text": "Säkerhetsgranskning 2026-11-11 gav resultat i Appkartan.",
+     "kalla": "Appkartan PR 13"
+    },
+    "niva": "ansluten"
+   },
+   "anamnes": {
+    "korningar": [
+     "Feedback, fel och robusthet: tis, tors, lör 02:25",
+     "Säkerhetsgranskning: fredagar 05:05"
+    ],
+    "senast": {
+     "lage": "inte_verifierat"
+    },
+    "niva": "registrerad"
+   },
+   "formatning": {
+    "korningar": [
+     "Feedback, fel och robusthet: ons, lör 04:30",
+     "Säkerhetsgranskning: torsdagar 05:25"
+    ],
+    "senast": {
+     "lage": "inte_verifierat",
+     "text": "Startade 2026-11-11. Resultatet är inte kontrollerat."
+    },
+    "niva": "registrerad"
+   },
+   "personal": {
+    "korningar": [
+     "Säkerhetsgranskning: tisdagar 05:05"
+    ],
+    "senast": {
+     "lage": "inte_verifierat"
+    },
+    "niva": "registrerad"
+   },
+   "academy": {
+    "korningar": [
+     "Feedback, fel och robusthet: mån, ons, fre 22:50",
+     "Säkerhetsgranskning: lördagar 05:05"
+    ],
+    "senast": {
+     "lage": "inte_verifierat"
+    },
+    "niva": "ansluten"
+   },
+   "insikt": {
+    "korningar": [
+     "Feedback, fel och robusthet: mån, ons, fre 00:05",
+     "Säkerhetsgranskning: söndagar 05:05"
+    ],
+    "senast": {
+     "lage": "inte_verifierat",
+     "text": "Startade 2026-11-11. Resultatet är inte kontrollerat."
+    },
+    "niva": "ansluten"
+   },
+   "spargris": {
+    "korningar": [
+     "Feedback, fel och robusthet: söndagar 04:45",
+     "Säkerhetsgranskning: fredagar 05:25"
+    ],
+    "senast": {
+     "lage": "inte_verifierat"
+    },
+    "niva": "registrerad"
+   },
+   "bestallning": {
+    "korningar": [
+     "Feedback, fel och robusthet: tis, fre 04:15",
+     "Säkerhetsgranskning: onsdagar 05:25"
+    ],
+    "senast": {
+     "lage": "inte_verifierat",
+     "text": "Startade 2026-11-11. Resultatet är inte kontrollerat."
+    },
+    "niva": "registrerad"
+   },
+   "synpunkten": {
+    "korningar": [
+     "Feedback, fel och robusthet: ons, lör 03:45",
+     "Säkerhetsgranskning: tisdagar 05:25"
+    ],
+    "senast": {
+     "lage": "inte_verifierat",
+     "text": "Startade 2026-11-11. Resultatet är inte kontrollerat."
+    },
+    "niva": "registrerad"
+   },
+   "hemsidan": {
+    "korningar": [
+     "Feedback, fel och robusthet: tis, fre 03:30",
+     "Säkerhetsgranskning: måndagar 05:25",
+     "SEO och snabbhet: onsdagar 02:10",
+     "Idéer och innehåll: söndagar 02:10"
+    ],
+    "senast": {
+     "lage": "inte_verifierat",
+     "text": "SEO-körningen startade 2026-11-11. Resultatet är inte kontrollerat."
+    },
+    "niva": "registrerad"
+   },
+   "blueprint": {
+    "korningar": [],
+    "senast": {
+     "lage": "ej_ansluten"
+    },
+    "niva": "registrerad"
+   },
+   "nyckelvalvet": {
+    "korningar": [],
+    "senast": {
+     "lage": "ej_ansluten"
+    },
+    "niva": "registrerad"
+   },
+   "motorer": {
+    "korningar": [
+     "Nattmotorn: varje natt cirka 23:10"
+    ],
+    "senast": {
+     "lage": "verifierat",
+     "text": "Körde 2026-11-10 men byggde inget, femte natten i rad.",
+     "kalla": "Blueprints nattlogg"
+    },
+    "niva": "registrerad"
+   }
+  }
+ },
+ "resurser": [
+  {
+   "namn": "API-kostnad via Agent Core",
+   "varde": "0 kr senaste 30 dagarna",
+   "lage": "verifierat",
+   "kalla": "Agent Cores logg över modellanrop",
+   "datum": "2026-11-11",
+   "not": "Allt arbete går i dag på abonnemang, inte API."
+  },
+  {
+   "namn": "Budget och nödstopp",
+   "varde": "Finns per arbetsflöde",
+   "lage": "verifierat",
+   "kalla": "Agent Core",
+   "datum": "2026-11-11",
+   "not": "Gäller bara API-anrop. Alla fyra arbetsflöden är avstängda."
+  },
+  {
+   "namn": "Lovable",
+   "varde": "Plan: Pro",
+   "lage": "verifierat",
+   "kalla": "Lovables API",
+   "datum": "2026-11-11",
+   "not": "Kvarvarande krediter går inte att läsa automatiskt. Senast loggat värde är från 2026-08-04."
+  },
+  {
+   "namn": "Lovable-krediter kvar",
+   "lage": "ej_ansluten",
+   "not": "Reservlösning: läses av för hand en gång i veckan tills en källa finns."
+  },
+  {
+   "namn": "Claude-abonnemang och användning",
+   "lage": "inte_verifierat",
+   "not": "Ingen källa för förbrukning mot gräns."
+  },
+  {
+   "namn": "Grok Bot-användning",
+   "lage": "ej_ansluten",
+   "not": "Ingen källa. Kostnaden syns bara i Groks egen faktura."
+  },
+  {
+   "namn": "Kostnad per app och uppgift",
+   "lage": "ej_ansluten",
+   "not": "Kräver att varje körning loggar app och resultat i Agent Core."
+  }
+ ],
+ "max_alder_dagar": 2,
+ "skyddad": {
+  "lage": "planerad",
+  "text": "Den här sidan är publik och visar bara antal och nivåer. Verkliga ärenden, beslutsfrågor och incidenter ska visas i en skyddad del med inloggning. Den delen är inte byggd."
+ },
+ "appregister": {
+  "kalla": "Appförteckningen i Agent Core (väntande, inte i drift). Kontrollerad mot Appkartan, GitHub, Lovable och Blueprint.",
+  "datum": "2026-11-11",
+  "nivaer": {
+   "registrerad": "Appen finns med och har en ansvarig agent.",
+   "ansluten": "Agenten läste appens läge det datum som står.",
+   "automatiserad": "Agenten har ett verifierat flöde för utveckling, test och tillåten publicering. Ingen app är där än."
+  },
+  "utanfor_kartan": [
+   {
+    "namn": "Shop Flow (Dagens uppgifter)",
+    "lage": "I drift enligt Blueprint. Senast ändrad 2026-09-07. Oklart om den används."
+   },
+   {
+    "namn": "Pulse Check",
+    "lage": "I drift enligt Blueprint. Ingen säker träff i Lovable eller GitHub."
+   },
+   {
+    "namn": "Star Climb",
+    "lage": "Publicerad men oregistrerad."
+   },
+   {
+    "namn": "Eyewear Navigator",
+    "lage": "Avvecklas. Repot är raderat."
+   }
+  ],
+  "extra": [
+   {
+    "namn": "Bågpris (Frame Finder)",
+    "niva": "registrerad",
+    "not": "I drift enligt Blueprint. Har ansvarig agent i förteckningen sedan 2026-11-11. Databas och feedbackkälla är inte kontrollerade, och appen saknas på Kartan."
+   }
+  ]
+ }
+}
