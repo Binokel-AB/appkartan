@@ -188,3 +188,18 @@ ul.plain{margin:0;padding-left:1.1em;display:grid;gap:3px}
 .undecided ul{margin:0;padding-left:20px;font-size:.92rem}
 .rules-grid{display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
 .rules-grid .card{display:grid;gap:4px;align-content:start}
+
+/* Kontrollrum */
+.kgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:8px}
+.kv{font-size:1.7rem;line-height:1.1;font-variant-numeric:tabular-nums}
+.kv-no{font-size:1.05rem;color:var(--muted)}
+.src{color:var(--muted);font-size:.78rem}
+.kh{font-size:1.05rem;margin-top:8px}
+.rowtop{align-items:flex-start}
+.rowtop .rn{gap:2px}
+.g-ej{--c:var(--old)}
+.org{display:grid;gap:4px;justify-items:center}
+.orgbox{width:100%;max-width:460px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px 12px;display:grid;gap:3px;justify-items:start}
+.orgbox span{color:var(--muted);font-size:.9rem}
+.orgbox small{color:var(--muted);font-size:.8rem}
+.orgarrow{color:var(--muted);font-size:1.2rem;line-height:1}
