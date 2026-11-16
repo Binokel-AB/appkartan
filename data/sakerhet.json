@@ -53,8 +53,8 @@
      "Varje ändring går via en egen gren och en granskad PR. Direkt ändring av huvudkoden stoppas."
     ],
     "serverfunktioner": [
-     "ej",
-     "25 serverfunktioner finns. Inloggningskravet på var och en är ej kontrollerat i den här genomgången."
+     "atgard",
+     "Inloggningskravet är genomgånget på alla serverfunktioner. Brister hittades och rättas i PR."
     ],
     "backup": [
      "ej",
@@ -66,8 +66,8 @@
     ]
    },
    "granskning": [
-    "2026-11-10",
-    "Oberoende granskning av rättighetsstädningen: godkänd, och kontrollerad i databasen i drift. Dessutom automatisk grundkontroll av radskydd och nycklar i koden."
+    "2026-11-16",
+    "Veckogranskning av koden: 9 fynd (2 hög), rättas i PR."
    ],
    "kod": "150 databasändringar (migrationer) i repot",
    "version": "2026-11-10"
