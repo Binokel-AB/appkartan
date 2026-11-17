@@ -304,8 +304,8 @@
      "Varje ändring går via en egen gren och en granskad PR. Direkt ändring av huvudkoden stoppas."
     ],
     "serverfunktioner": [
-     "ok",
-     "Inga edge functions. Serverkoden ligger i appen."
+     "atgard",
+     "Inloggningskravet är genomgånget på serverfunktionerna. Mindre brister hittades och rättas i PR."
     ],
     "backup": [
      "ej",
@@ -317,8 +317,8 @@
     ]
    },
    "granskning": [
-    "2026-11-10",
-    "Oberoende granskning av rättighetsstädningen: godkänd, och kontrollerad i databasen i drift. Dessutom automatisk grundkontroll av radskydd och nycklar i koden."
+    "2026-11-17",
+    "Veckogranskning av koden: 12 fynd (1 hög), rättas i PR."
    ],
    "kod": "118 databasändringar (migrationer) i repot",
    "version": "2026-11-10"
