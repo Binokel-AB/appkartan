@@ -54,7 +54,7 @@
     ],
     "serverfunktioner": [
      "atgard",
-     "Inloggningskravet är genomgånget på alla serverfunktioner. Brister hittades och rättas i PR."
+     "Veckogranskningen 2026-11-23 hittade brister i inloggningskravet på två serverfunktioner. Rättas i PR."
     ],
     "backup": [
      "ej",
@@ -66,8 +66,8 @@
     ]
    },
    "granskning": [
-    "2026-11-16",
-    "Veckogranskning av koden: 9 fynd (2 hög), rättas i PR."
+    "2026-11-23",
+    "Veckogranskning av koden: 5 fynd (0 hög), rättas i PR."
    ],
    "kod": "150 databasändringar (migrationer) i repot",
    "version": "2026-11-10"
