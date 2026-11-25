@@ -155,7 +155,7 @@
     ],
     "serverfunktioner": [
      "atgard",
-     "Inloggningskravet på serverfunktionerna är kontrollerat i koden; mindre anmärkningar finns och rättas i PR."
+     "Inloggningskravet på serverfunktionerna är kontrollerat i koden; anmärkningar finns och rättas i PR."
     ],
     "backup": [
      "ej",
@@ -167,8 +167,8 @@
     ]
    },
    "granskning": [
-    "2026-11-18",
-    "Veckogranskning av koden: 8 fynd (0 hög), rättas i PR."
+    "2026-11-25",
+    "Veckogranskning av koden: 12 fynd (0 hög), rättas i PR."
    ],
    "kod": "131 databasändringar (migrationer) i repot",
    "version": "2026-11-10"
