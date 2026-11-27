@@ -10,7 +10,7 @@ Den här filen läses av Claude Code i varje Binokel-repo. Lägg samma fil i all
 ## Så arbetar du
 
 1. **GitHub först, Lovable sist.** Gör ändringar i koden i GitHub. Använd Lovable bara om det inte går att göra i GitHub, och **aldrig så att betalda Lovable-krediter går åt**. Är du osäker: gör inget i Lovable och fråga.
-2. **Allt via PR.** Aldrig push direkt till `main` och aldrig något direkt till produktion. Arbeta på en gren, öppna en PR och låt Daniel godkänna.
+2. **Allt via PR.** Aldrig push direkt till `main` och aldrig något direkt till produktion. Arbeta på en gren och öppna en PR. En PR som är grön, testad och granskad mergas och publiceras utan att fråga Daniel (Daniel 2026-11-11). Undantaget är punkt 8.
 3. **Kör `/security-review` innan en PR markeras klar** (se "Säkerhet" nedan).
 4. **Inga farliga steg utan Daniels uttryckliga ja:**
    - radera något (filer, rader i databasen, grenar, appar, användare)
@@ -25,7 +25,7 @@ Den här filen läses av Claude Code i varje Binokel-repo. Lägg samma fil i all
    - du själv har provat just det flöde som var trasigt, i den publicerade appen, med ett eget testkonto. Använd aldrig Daniels, Christians eller personalens konton, och använd testdata eller en testlektion, aldrig riktiga kunder.
 
    Går något av det inte att göra, säg exakt hur långt det har kommit (mergat, publicerat, ej provat) och vad som saknas.
-8. **Behörigheter och roller via PR och Daniels ja.** Nya konton, roller, admin-rättigheter, pilotrader, RLS och hemligheter ändras bara som en PR (eller ett granskat SQL-skript i en PR). Fråga Daniel innan den mergas eller körs mot produktionen.
+8. **Behörigheter, roller och nycklar via PR och Daniels ja.** Nya konton, roller, admin-rättigheter, pilotrader, RLS, nycklar och hemligheter ändras bara som en PR (eller ett granskat SQL-skript i en PR). Fråga Daniel innan den mergas eller körs mot produktionen.
 
 ## Beslut: så ber du om ett
 
