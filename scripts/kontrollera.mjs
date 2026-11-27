@@ -63,7 +63,23 @@ if (Ro) {
   for (const r of Ro.roller ?? []) if (!r.namn || !r.person || !r.kort || !Array.isArray(r.godkanner) || !r.godkanner.length) fel.push(`roller.json: rollen ${r.id} saknar namn, person, kort eller godkanner`);
   if (!Array.isArray(Ro.flode) || !Array.isArray(Ro.ta_over)) fel.push("roller.json: flode och ta_over ska vara listor");
 }
-const text = readFileSync("data/appar.json", "utf8") + (Sk ? JSON.stringify(Sk) : "") + (Ro ? JSON.stringify(Ro) : "");
+// Kontrollrum: data/kontrollrum.json får aldrig visa en siffra utan källa och datum.
+let Kr = null;
+try { Kr = JSON.parse(readFileSync("data/kontrollrum.json", "utf8")); } catch (e) { fel.push("data/kontrollrum.json är inte giltig JSON: " + e.message); }
+if (Kr) {
+  const KLAGE = ["verifierat", "drift", "planerad", "inte_verifierat", "ej_ansluten"];
+  const matt = [...(Kr.oversikt ?? []), ...(Kr.resurser ?? []), ...Object.values(Kr.beslut ?? {}).filter((x) => x && typeof x === "object")];
+  for (const m of matt) {
+    if (!KLAGE.includes(m.lage)) fel.push(`kontrollrum.json: okänt läge ${m.lage} (${m.namn ?? "beslut"})`);
+    if (m.lage === "verifierat" && (!m.kalla || !/^\d{4}-\d{2}-\d{2}$/.test(m.datum ?? ""))) fel.push(`kontrollrum.json: ${m.namn ?? "beslut"} är verifierat men saknar källa eller datum`);
+    if (m.lage !== "verifierat" && m.varde !== undefined) fel.push(`kontrollrum.json: ${m.namn ?? "beslut"} har ett värde utan att vara verifierat`);
+  }
+  for (const id of Object.keys(Kr.organisation?.appagenter ?? {})) if (!ids.has(id)) fel.push(`kontrollrum.json: okänd app ${id}`);
+  for (const id of ids) if (!Kr.organisation?.appagenter?.[id]) fel.push(`kontrollrum.json: appagent saknas för ${id}`);
+  for (const [id, g] of Object.entries(Kr.organisation?.appagenter ?? {})) if (!["registrerad", "ansluten", "automatiserad"].includes(g.niva)) fel.push(`kontrollrum.json: ${id} saknar nivå`);
+  if (!Kr.appregister?.kalla || !/^\d{4}-\d{2}-\d{2}$/.test(Kr.appregister?.datum ?? "")) fel.push("kontrollrum.json: appregistret saknar källa eller datum");
+}
+const text = readFileSync("data/appar.json", "utf8") + (Sk ? JSON.stringify(Sk) : "") + (Ro ? JSON.stringify(Ro) : "") + (Kr ? JSON.stringify(Kr) : "");
 const SPARR = [
   [/\b\d{6}[-+]?\d{4}\b/, "något som liknar ett personnummer"],
   [/\b07\d[\s-]?\d{3}[\s-]?\d{2}[\s-]?\d{2}\b/, "något som liknar ett mobilnummer"],
