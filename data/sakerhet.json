@@ -62,7 +62,7 @@
     ],
     "feedback": [
      "atgard",
-     "2 öppna feedbackpunkter, 0 rättade i PR som väntar på godkännande."
+     "4 öppna feedbackpunkter, 2 rättade i PR som väntar på godkännande."
     ]
    },
    "granskning": [
@@ -263,8 +263,8 @@
      "Ej kontrollerat. Vi har inte verifierat hur ofta databasen säkerhetskopieras eller provat en återläsning."
     ],
     "feedback": [
-     "ok",
-     "0 öppna feedbackpunkter, 0 rättade i PR som väntar på godkännande."
+     "atgard",
+     "1 öppna feedbackpunkter, 0 rättade i PR som väntar på godkännande."
     ]
    },
    "granskning": [
@@ -460,8 +460,8 @@
      "Ej kontrollerat. Vi har inte verifierat hur ofta databasen säkerhetskopieras eller provat en återläsning."
     ],
     "feedback": [
-     "ok",
-     "0 öppna feedbackpunkter, 0 rättade i PR som väntar på godkännande."
+     "atgard",
+     "2 öppna feedbackpunkter, 0 rättade i PR som väntar på godkännande."
     ]
    },
    "granskning": [
@@ -510,8 +510,8 @@
      "Ej kontrollerat. Vi har inte verifierat hur ofta databasen säkerhetskopieras eller provat en återläsning."
     ],
     "feedback": [
-     "ej",
-     "Antal öppna feedbackpunkter är ej kontrollerat i den här genomgången."
+     "ok",
+     "0 öppna feedbackpunkter, 0 rättade i PR som väntar på godkännande."
     ]
    },
    "granskning": [
